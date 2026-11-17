@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { caseStudies } from '../data/caseStudiesData.js';
 import { ArrowRight, Trophy, Landmark, Users, Building, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import AnimatedCounter from '../components/AnimatedCounter.jsx';
 
 export default function CaseStudies() {
   const { t, lang } = useLanguage();
@@ -57,7 +58,7 @@ export default function CaseStudies() {
                     <div className="metrics-vertical-stack">
                       {cs.metrics.map((m, i) => (
                         <div key={i} className="metric-box-large">
-                          <span className="metric-val-big">{m.value}</span>
+                          <span className="metric-val-big"><AnimatedCounter value={m.value} /></span>
                           <span className="metric-label-big">{lang === 'bn' ? m.labelBn : m.labelEn}</span>
                         </div>
                       ))}

@@ -25,6 +25,8 @@ import { caseStudies } from '../data/caseStudiesData.js';
 import ClientStrip from '../components/ClientStrip.jsx';
 import QuotationCalculator from '../components/QuotationCalculator.jsx';
 import ServiceIcon from '../components/ServiceIcon.jsx';
+import InteractiveHeroCanvas from '../components/InteractiveHeroCanvas.jsx';
+import AnimatedCounter from '../components/AnimatedCounter.jsx';
 
 export default function Home() {
   const { t, lang } = useLanguage();
@@ -34,6 +36,7 @@ export default function Home() {
     <div className="home-page">
       {/* HERO SECTION */}
       <section className="hero-section">
+        <InteractiveHeroCanvas />
         <div className="hero-ambient-glow" />
         <div className="container hero-layout">
           <div className="hero-copy-block">
@@ -123,7 +126,7 @@ export default function Home() {
               <div className="floating-metric-card top-float">
                 <Sparkles size={16} className="metric-sparkle" />
                 <div>
-                  <strong>98%</strong>
+                  <strong><AnimatedCounter value="98%" /></strong>
                   <span>{lang === 'bn' ? 'ক্লায়েন্ট সন্তুষ্টি' : 'Satisfaction Rate'}</span>
                 </div>
               </div>
@@ -131,7 +134,7 @@ export default function Home() {
               <div className="floating-metric-card bottom-float">
                 <ShieldCheck size={16} className="metric-shield" />
                 <div>
-                  <strong>500+</strong>
+                  <strong><AnimatedCounter value="500+" /></strong>
                   <span>{lang === 'bn' ? 'সফল প্রজেক্ট' : 'Projects Done'}</span>
                 </div>
               </div>
@@ -286,7 +289,7 @@ export default function Home() {
                 <div className="case-metrics-grid">
                   {cs.metrics.map((m, idx) => (
                     <div key={idx} className="metric-cell">
-                      <strong className="metric-number">{m.value}</strong>
+                      <strong className="metric-number"><AnimatedCounter value={m.value} /></strong>
                       <span className="metric-label">{lang === 'bn' ? m.labelBn : m.labelEn}</span>
                     </div>
                   ))}

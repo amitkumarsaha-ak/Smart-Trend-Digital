@@ -6,6 +6,8 @@ import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import WhatsAppButton from './components/WhatsAppButton.jsx';
+import CustomCursor from './components/CustomCursor.jsx';
+import ScrollProgress from './components/ScrollProgress.jsx';
 
 import Home from './pages/Home.jsx';
 import Services from './pages/Services.jsx';
@@ -19,6 +21,8 @@ export default function App() {
     <ThemeProvider>
       <LanguageProvider>
         <div className="app-shell">
+          <CustomCursor />
+          <ScrollProgress />
           <ScrollToTop />
           <Navbar />
           <main>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Menu, X, Globe, Phone, Mail, Clock } from 'lucide-react';
 import Logo from './Logo.jsx';
+import SoundFXToggle from './SoundFXToggle.jsx';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { company } from '../data/company.js';
 
@@ -69,6 +70,9 @@ export default function Navbar() {
             <Link to="/quotation" className="btn btn-primary nav-cta">
               {t.nav.cta}
             </Link>
+
+            {/* Interactive Sound FX Toggle */}
+            <SoundFXToggle />
 
             {/* Quick Language Toggle (Now after Start a Project) */}
             <button

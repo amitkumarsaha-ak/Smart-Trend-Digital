@@ -5198,3 +5198,652 @@ p {
     color: #000000 !important;
   }
 }
+
+
+/* =========================================================================
+   ADVANCED INTERACTION, ANIMATION & CURSOR SYSTEM
+   ========================================================================= */
+
+/* 1. CUSTOM CURSOR (DOT + MAGNETIC RING) */
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: #38bdf8;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999999;
+  transform: translate3d(-100px, -100px, 0);
+  margin-top: -4px;
+  margin-left: -4px;
+  opacity: 0;
+  transition: opacity 0.25s ease, width 0.2s ease, height 0.2s ease, margin 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 0 10px #38bdf8, 0 0 20px rgba(56, 189, 248, 0.6);
+  will-change: transform;
+}
+
+.custom-cursor-dot.visible {
+  opacity: 1;
+}
+
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(56, 189, 248, 0.85);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999998;
+  transform: translate3d(-100px, -100px, 0);
+  margin-top: -18px;
+  margin-left: -18px;
+  opacity: 0;
+  transition: opacity 0.25s ease, width 0.22s cubic-bezier(0.16, 1, 0.3, 1), height 0.22s cubic-bezier(0.16, 1, 0.3, 1), margin 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, background-color 0.2s ease, transform 0.08s ease-out;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.25);
+  will-change: transform;
+}
+
+.custom-cursor-ring.visible {
+  opacity: 1;
+}
+
+/* Cursor on Hovering Interactive Elements */
+.custom-cursor-ring.hover {
+  width: 56px;
+  height: 56px;
+  margin-top: -28px;
+  margin-left: -28px;
+  border-color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  backdrop-filter: blur(1px);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.45), inset 0 0 12px rgba(56, 189, 248, 0.15);
+}
+
+.custom-cursor-dot.hover {
+  transform: scale(0.65);
+  background: #ffffff;
+  box-shadow: 0 0 12px #ffffff;
+}
+
+/* Cursor on Click / MouseDown */
+.custom-cursor-ring.clicking {
+  transform: scale(0.85);
+  border-width: 2.5px;
+  background: rgba(2, 132, 199, 0.25);
+}
+
+.custom-cursor-dot.clicking {
+  transform: scale(1.4);
+}
+
+/* Cursor on Text Input */
+.custom-cursor-dot.text-mode {
+  width: 2px;
+  height: 18px;
+  margin-top: -9px;
+  margin-left: -1px;
+  border-radius: 1px;
+  background: #38bdf8;
+}
+
+.custom-cursor-ring.text-mode {
+  opacity: 0.15;
+  width: 24px;
+  height: 24px;
+  margin-top: -12px;
+  margin-left: -12px;
+}
+
+/* Hide custom cursor on touch devices or fine pointer absent */
+@media (pointer: coarse), (hover: none) {
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: none !important;
+  }
+}
+
+/* 2. SCROLL PROGRESS BAR AT TOP VIEWPORT */
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 100000;
+  pointer-events: none;
+  background: rgba(2, 132, 199, 0.08);
+}
+
+.scroll-progress-bar {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #0284c7 0%, #38bdf8 50%, #60a5fa 100%);
+  transform-origin: left;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.9), 0 0 24px rgba(2, 132, 199, 0.5);
+  transition: transform 0.08s ease-out;
+}
+
+.scroll-progress-glow {
+  position: absolute;
+  top: -3px;
+  width: 32px;
+  height: 9px;
+  background: radial-gradient(circle, #38bdf8 0%, rgba(56, 189, 248, 0) 70%);
+  filter: blur(2px);
+  pointer-events: none;
+  transform: translateX(-50%);
+  transition: left 0.08s ease-out;
+}
+
+/* 3. HERO INTERACTIVE CANVAS */
+.hero-interactive-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.75;
+}
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-layout {
+  position: relative;
+  z-index: 2;
+}
+
+/* 4. KINETIC HEADLINE & GRADIENT FLOW ANIMATION */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero-title-gradient,
+.kinetic-highlight-flow {
+  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 40%, #0369a1 70%, #38bdf8 100%);
+  background-size: 250% 250%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlow 6s ease-in-out infinite;
+}
+
+[data-theme="dark"] .hero-title-gradient,
+[data-theme="dark"] .kinetic-highlight-flow {
+  background: linear-gradient(135deg, #38bdf8 0%, #60a5fa 40%, #93c5fd 70%, #38bdf8 100%);
+  background-size: 250% 250%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlow 6s ease-in-out infinite;
+}
+
+/* 5. SOUND FX TOGGLE BUTTON */
+.sound-fx-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.38rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: var(--blue-pale);
+  border: 1px solid var(--blue-subtle);
+  color: var(--navy);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.76rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.sound-fx-toggle-btn:hover {
+  background: var(--blue-subtle);
+  border-color: var(--blue-primary);
+  color: var(--blue-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
+}
+
+.sound-fx-toggle-btn.sound-active {
+  background: rgba(2, 132, 199, 0.12);
+  border-color: var(--blue-primary);
+  color: var(--blue-primary);
+}
+
+[data-theme="dark"] .sound-fx-toggle-btn {
+  background: #0f1c34;
+  border-color: #1e293b;
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .sound-fx-toggle-btn:hover,
+[data-theme="dark"] .sound-fx-toggle-btn.sound-active {
+  background: rgba(56, 189, 248, 0.18);
+  border-color: #38bdf8;
+  color: #38bdf8;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.25);
+}
+
+.sound-wave-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+
+.sound-wave-bars .bar {
+  width: 2.5px;
+  background: currentColor;
+  border-radius: 2px;
+  animation: soundBarBounce 1s ease-in-out infinite alternate;
+}
+
+.sound-wave-bars .bar-1 {
+  height: 4px;
+  animation-delay: 0s;
+}
+
+.sound-wave-bars .bar-2 {
+  height: 11px;
+  animation-delay: 0.25s;
+}
+
+.sound-wave-bars .bar-3 {
+  height: 7px;
+  animation-delay: 0.5s;
+}
+
+@keyframes soundBarBounce {
+  0% {
+    height: 3px;
+  }
+  100% {
+    height: 12px;
+  }
+}
+
+.sound-label-muted {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  opacity: 0.75;
+}
+
+/* 6. AGENCY MARQUEE TICKER (CLIENT STRIP & BADGES) */
+.agency-marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  padding: 0.4rem 0;
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+}
+
+.agency-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marqueeScroll var(--marquee-duration, 32s) linear infinite;
+  animation-direction: var(--marquee-direction, normal);
+}
+
+.agency-marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-shrink: 0;
+  padding-right: 1.25rem;
+}
+
+.agency-marquee-wrapper.pause-hover:hover .agency-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.client-strip-grid.marquee-inner-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.25rem;
+}
+
+/* 7. SPOTLIGHT & INTERACTIVE CARD HOVER SYSTEM */
+.spotlight-card-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    520px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--spotlight-color, rgba(56, 189, 248, 0.14)),
+    transparent 45%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+.spotlight-active .spotlight-overlay,
+.spotlight-card-wrapper:hover .spotlight-overlay {
+  opacity: 1;
+}
+
+/* Global spotlight & elevation on existing cards without HTML alteration */
+.pillar-main-card,
+.case-study-card,
+.case-study-deep-card,
+.service-premium-card,
+.service-catalog-card,
+.value-card,
+.cred-item-card,
+.calc-step-card,
+.office-card-preview {
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.pillar-main-card::before,
+.case-study-card::before,
+.service-premium-card::before,
+.value-card::before,
+.cred-item-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    450px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(56, 189, 248, 0.12),
+    transparent 45%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+.pillar-main-card:hover::before,
+.case-study-card:hover::before,
+.service-premium-card:hover::before,
+.value-card:hover::before,
+.cred-item-card:hover::before {
+  opacity: 1;
+}
+
+.pillar-main-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 16px 36px -8px rgba(2, 132, 199, 0.25), 0 0 0 1px rgba(56, 189, 248, 0.25);
+}
+
+.case-study-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 16px 36px -8px rgba(2, 132, 199, 0.25);
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 14px 30px -8px rgba(2, 132, 199, 0.22);
+}
+
+.cred-item-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 12px 25px -6px rgba(2, 132, 199, 0.2);
+}
+
+/* Pillar icon box hover rotation */
+.pillar-main-card:hover .pillar-icon-box {
+  transform: scale(1.1) rotate(4deg);
+  background: var(--blue-primary);
+  color: #ffffff;
+  border-color: var(--blue-primary);
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.35);
+}
+
+.pillar-icon-box {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 8. BUTTON SHEEN & HOVER DYNAMICS */
+.btn-primary,
+.btn-hero,
+.nav-cta,
+.btn-submit-contact,
+.btn-action {
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.btn-primary::after,
+.btn-hero::after,
+.nav-cta::after,
+.btn-submit-contact::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.32) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  transition: none;
+}
+
+.btn-primary:hover::after,
+.btn-hero:hover::after,
+.nav-cta:hover::after,
+.btn-submit-contact:hover::after {
+  left: 200%;
+  transition: left 0.75s ease-in-out;
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.985) !important;
+}
+
+/* 9. FLOATING METRIC CARDS ENHANCED PHYSICS */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+@keyframes floatGentleReverse {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(7px) rotate(-0.5deg);
+  }
+}
+
+.floating-metric-card.top-float {
+  animation: floatGentle 4.5s ease-in-out infinite;
+}
+
+.floating-metric-card.bottom-float {
+  animation: floatGentleReverse 5.2s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+.floating-metric-card:hover {
+  transform: scale(1.06) translateY(-4px) !important;
+  border-color: #38bdf8 !important;
+  box-shadow: 0 16px 38px rgba(2, 132, 199, 0.38), 0 0 0 1px rgba(56, 189, 248, 0.4) !important;
+}
+
+/* 10. HERO SHOWCASE PHOTO HOVER & AMBIENT SHINE */
+.hero-image-frame {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease, border-color 0.35s ease;
+}
+
+.hero-image-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 35px 80px -20px rgba(2, 132, 199, 0.35), 0 0 0 1px rgba(56, 189, 248, 0.4);
+}
+
+.hero-main-photo {
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+.hero-image-container:hover .hero-main-photo {
+  transform: scale(1.035);
+}
+
+.hero-image-overlay {
+  transition: background 0.35s ease, opacity 0.35s ease;
+}
+
+/* 11. LIVE STATUS DOT PULSE & BADGE SPARKS */
+@keyframes pulseBeacon {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.live-status-dot,
+.pulse-indicator {
+  animation: pulseBeacon 2.2s infinite;
+}
+
+@keyframes badgeSparkSpin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.badge-spark {
+  animation: badgeSparkSpin 6s linear infinite;
+}
+
+/* 12. CLIENT BADGES HOVER MICRO-GLOW */
+.client-badge {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.25s ease;
+}
+
+.client-badge:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: #38bdf8;
+  box-shadow: 0 8px 24px -4px rgba(2, 132, 199, 0.25);
+}
+
+.client-badge:hover .badge-icon-box {
+  transform: scale(1.08);
+  background: var(--blue-primary);
+  color: #ffffff;
+}
+
+.badge-icon-box {
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+/* 13. ANIMATED COUNTER TABULAR NUMBERS */
+.animated-counter {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  transition: transform 0.2s ease;
+}
+
+.metric-cell:hover .animated-counter,
+.metric-box-large:hover .animated-counter {
+  transform: scale(1.08);
+  color: #38bdf8;
+}
+
+/* 14. NAVIGATION LINK HOVER UNDERLINE SLIDE */
+.desktop-nav .nav-item {
+  position: relative;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.desktop-nav .nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #0284c7, #38bdf8);
+  border-radius: 2px;
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1), left 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.desktop-nav .nav-item:hover::after,
+.desktop-nav .nav-item.active::after {
+  width: 65%;
+  left: 17.5%;
+}
+
+/* 15. SECTION ENTRANCE & CARD REVEAL SMOOTH TRANSITIONS */
+@keyframes smoothFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-copy-block {
+  animation: smoothFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-image-column {
+  animation: smoothFadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { company } from '../data/company.js';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { ShieldCheck, Award, MapPin, Phone, Mail, Globe, CheckCircle2, ArrowRight, Sparkles, Building2, Users } from 'lucide-react';
+import AnimatedCounter from '../components/AnimatedCounter.jsx';
 
 export default function About() {
   const { t, lang } = useLanguage();
@@ -78,15 +79,15 @@ export default function About() {
                 </p>
                 <div className="about-stats-mini">
                   <div className="mini-stat">
-                    <strong>8+</strong>
+                    <strong><AnimatedCounter value="8+" /></strong>
                     <span>{lang === 'bn' ? 'বছরের অভিজ্ঞতা' : 'Years Experience'}</span>
                   </div>
                   <div className="mini-stat">
-                    <strong>40+</strong>
+                    <strong><AnimatedCounter value="40+" /></strong>
                     <span>{lang === 'bn' ? 'সেবাসমূহ' : 'Specialized Services'}</span>
                   </div>
                   <div className="mini-stat">
-                    <strong>24/7</strong>
+                    <strong><AnimatedCounter value="24/7" /></strong>
                     <span>{lang === 'bn' ? 'ইঞ্জিনিয়ারিং সাপোর্ট' : 'Engineering SLA'}</span>
                   </div>
                 </div>
@@ -134,7 +135,7 @@ export default function About() {
         <div className="container stats-flex">
           {company.stats.map((s, idx) => (
             <div key={idx} className="stat-unit">
-              <strong>{s.value}</strong>
+              <strong><AnimatedCounter value={s.value} /></strong>
               <span>{lang === 'bn' ? s.labelBn : s.labelEn}</span>
             </div>
           ))}
