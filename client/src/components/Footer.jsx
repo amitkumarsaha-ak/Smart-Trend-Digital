@@ -53,9 +53,9 @@ export default function Footer() {
           <div className="footer-col">
             <h3>{t.footer.quickLinks}</h3>
             <ul>
+              <li><Link to="/services">{t.nav.services}</Link></li>
               <li><Link to="/quotation">{t.nav.quotation}</Link></li>
               <li><Link to="/case-studies">{t.nav.caseStudies}</Link></li>
-              <li><Link to="/packages">{t.nav.packages}</Link></li>
               <li><Link to="/about">{t.nav.about}</Link></li>
               <li><Link to="/contact">{t.nav.contact}</Link></li>
             </ul>

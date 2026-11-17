@@ -2535,6 +2535,161 @@ p {
   margin-bottom: 1.75rem;
 }
 
+/* =========================================================================
+   6 MAIN HEAD CATEGORIES WITH BULLET-POINTED SERVICES
+   ========================================================================= */
+.pillars-main-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.pillar-main-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 2.25rem 2rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.pillar-main-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue-primary), #38bdf8);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pillar-main-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+  border-color: #93c5fd;
+}
+
+.pillar-main-card:hover::before {
+  opacity: 1;
+}
+
+.pillar-card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.pillar-icon-box {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.12), rgba(14, 165, 233, 0.05));
+  color: var(--blue-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.pillar-main-card:hover .pillar-icon-box {
+  transform: scale(1.08);
+}
+
+.pillar-label-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--blue-primary);
+  background: var(--blue-pale);
+  padding: 0.22rem 0.65rem;
+  border-radius: 6px;
+  margin-bottom: 0.45rem;
+}
+
+.pillar-card-head h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.pillar-desc {
+  font-size: 0.92rem;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  min-height: 46px;
+}
+
+.pillar-bullet-section {
+  background: var(--surface-alt);
+  border-radius: 14px;
+  padding: 1.35rem;
+  margin-bottom: 1.75rem;
+  flex-grow: 1;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.bullet-section-title {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.pillar-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.pillar-bullet-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.9rem;
+  color: var(--ink);
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.pillar-check-icon {
+  color: var(--blue-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pillar-card-actions {
+  margin-top: auto;
+}
+
+.pillar-card-actions .btn {
+  width: 100%;
+  justify-content: center;
+}
+
 .services-master-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -3755,6 +3910,11 @@ p {
     gap: 1.25rem;
   }
 
+  .pillars-main-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
   .services-card-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
@@ -3860,6 +4020,15 @@ p {
 
   .services-card-grid {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+
+  .pillars-main-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .pillar-main-card {
+    padding: 1.6rem 1.35rem;
   }
 
   .quotation-calculator-container {
@@ -4708,9 +4877,48 @@ p {
 [data-theme="dark"] .package-card,
 [data-theme="dark"] .value-card,
 [data-theme="dark"] .cred-item-card,
-[data-theme="dark"] .about-image-card {
+[data-theme="dark"] .about-image-card,
+[data-theme="dark"] .pillar-main-card {
   background: #0f1c34;
   border-color: #1e293b;
+}
+
+[data-theme="dark"] .pillar-main-card:hover {
+  border-color: #38bdf8;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="dark"] .pillar-card-head h3 {
+  color: #f8fafc;
+}
+
+[data-theme="dark"] .pillar-desc {
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .pillar-bullet-section {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .bullet-section-title {
+  color: #94a3b8;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .pillar-bullet-list li {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .pillar-icon-box {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.25);
+  color: #38bdf8;
+}
+
+[data-theme="dark"] .pillar-label-badge {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
 }
 
 [data-theme="dark"] .service-premium-card h4,

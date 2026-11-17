@@ -22,18 +22,13 @@ import { useLanguage } from '../context/LanguageContext.jsx';
 import { company } from '../data/company.js';
 import { serviceCategories } from '../data/servicesData.js';
 import { caseStudies } from '../data/caseStudiesData.js';
-import { servicePackages } from '../data/packagesData.js';
 import ClientStrip from '../components/ClientStrip.jsx';
 import QuotationCalculator from '../components/QuotationCalculator.jsx';
 import ServiceIcon from '../components/ServiceIcon.jsx';
 
 export default function Home() {
   const { t, lang } = useLanguage();
-  const [activeCategoryTab, setActiveCategoryTab] = useState(serviceCategories[0].id);
-  const [currency, setCurrency] = useState('bdt');
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const currentTabCategory = serviceCategories.find(c => c.id === activeCategoryTab) || serviceCategories[0];
 
   return (
     <div className="home-page">
@@ -197,72 +192,43 @@ export default function Home() {
             <p className="section-sub">{t.services.subtitle}</p>
           </div>
 
-          {/* CATEGORY TABS */}
-          <div className="pillar-tabs-container">
-            <div className="pillar-tabs-scroll">
-              {serviceCategories.map((cat) => (
-                <button
-                  key={cat.id}
-                  type="button"
-                  className={`pillar-tab-btn ${activeCategoryTab === cat.id ? 'active' : ''}`}
-                  onClick={() => setActiveCategoryTab(cat.id)}
-                >
-                  <ServiceIcon slug={cat.services[0]?.slug} size={18} />
-                  <span>{lang === 'bn' ? cat.nameBn : cat.nameEn}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* ACTIVE CATEGORY SHOWCASE */}
-          <div className="active-pillar-banner">
-            <div className="pillar-banner-copy">
-              <h3>{lang === 'bn' ? currentTabCategory.nameBn : currentTabCategory.nameEn}</h3>
-              <p>{lang === 'bn' ? currentTabCategory.summaryBn : currentTabCategory.summaryEn}</p>
-            </div>
-            <Link to="/services" className="btn btn-outline-white">
-              {t.services.viewAll} <ChevronRight size={16} />
-            </Link>
-          </div>
-
-          {/* SERVICES GRID */}
-          <div className="services-card-grid">
-            {currentTabCategory.services.slice(0, 4).map((service) => (
-              <div key={service.slug} className="service-premium-card">
-                <div className="card-top-meta">
-                  <span className="service-icon-box">
-                    <ServiceIcon slug={service.slug} size={22} />
-                  </span>
-                  <span className="price-tag">
-                    <small>{t.services.startingFrom}</small>
-                    <strong>৳ {service.startingPriceBdt}</strong>
-                  </span>
+          {/* 6 MAIN HEAD CATEGORIES WITH BULLET-POINT SERVICES */}
+          <div className="pillars-main-grid">
+            {serviceCategories.map((cat, idx) => (
+              <div key={cat.id} className="pillar-main-card" id={cat.id}>
+                <div className="pillar-card-head">
+                  <div className="pillar-icon-box">
+                    <ServiceIcon slug={cat.services[0]?.slug} size={28} />
+                  </div>
+                  <div>
+                    <span className="pillar-label-badge">{lang === 'bn' ? `পিলার ০${idx + 1}` : `Pillar 0${idx + 1}`}</span>
+                    <h3>{lang === 'bn' ? cat.nameBn : cat.nameEn}</h3>
+                  </div>
                 </div>
 
-                <h4>{lang === 'bn' ? service.titleBn : service.titleEn}</h4>
-                <p className="service-short-desc">
-                  {lang === 'bn' ? service.shortBn : service.shortEn}
-                </p>
+                <p className="pillar-desc">{lang === 'bn' ? cat.summaryBn : cat.summaryEn}</p>
 
-                <div className="service-features-list">
-                  <span className="deliverables-sub">{t.services.featuresLabel}:</span>
-                  <ul>
-                    {(lang === 'bn' ? service.featuresBn : service.featuresEn).map((f, i) => (
-                      <li key={i}>
-                        <CheckCircle2 size={13} className="feature-check" />
-                        <span>{f}</span>
+                <div className="pillar-bullet-section">
+                  <span className="bullet-section-title">
+                    {lang === 'bn' ? 'বিশেষায়িত সেবাসমূহ:' : 'Specialized Services:'}
+                  </span>
+                  <ul className="pillar-bullet-list">
+                    {cat.services.map((service) => (
+                      <li key={service.slug}>
+                        <CheckCircle2 size={16} className="pillar-check-icon" />
+                        <span>{lang === 'bn' ? service.titleBn : service.titleEn}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="service-card-footer">
+                <div className="pillar-card-actions">
                   <Link
-                    to={`/quotation?category=${currentTabCategory.id}&service=${service.slug}`}
-                    className="btn-card-quote"
+                    to={`/quotation?category=${cat.id}`}
+                    className="btn btn-primary btn-sm full-width"
                   >
-                    <span>{t.services.getQuoteForThis}</span>
-                    <ArrowRight size={14} />
+                    <span>{lang === 'bn' ? 'কোটেশন রিকোয়েস্ট' : 'Request Quotation'}</span>
+                    <ArrowRight size={15} />
                   </Link>
                 </div>
               </div>
@@ -271,7 +237,7 @@ export default function Home() {
 
           <div className="services-footer-cta">
             <Link to="/services" className="btn btn-secondary">
-              {lang === 'bn' ? 'সব ৪০+ সেবার তালিকা ও বিবরণ দেখুন' : 'Explore All 40+ Specialized Services'}
+              {lang === 'bn' ? 'সকল ৬টি প্রধান পিলার ও বিশেষায়িত সেবা দেখুন' : 'Explore All 6 Pillars & Specialized Services'}
               <ArrowRight size={16} />
             </Link>
           </div>
@@ -339,68 +305,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* POPULAR SERVICE PACKAGES */}
-      <section className="section packages-section">
-        <div className="container">
-          <div className="section-head center">
-            <p className="eyebrow">{t.packages.eyebrow}</p>
-            <h2>{t.packages.title}</h2>
-            <p className="section-sub">{t.packages.subtitle}</p>
-
-            <div className="currency-pill-group center-pill">
-              <button
-                type="button"
-                className={`pill-btn ${currency === 'bdt' ? 'active' : ''}`}
-                onClick={() => setCurrency('bdt')}
-              >
-                BDT (৳)
-              </button>
-              <button
-                type="button"
-                className={`pill-btn ${currency === 'usd' ? 'active' : ''}`}
-                onClick={() => setCurrency('usd')}
-              >
-                USD ($)
-              </button>
-            </div>
-          </div>
-
-          <div className="packages-grid">
-            {servicePackages.map((pkg) => (
-              <div key={pkg.id} className={`package-card ${pkg.popular ? 'popular' : ''}`}>
-                {pkg.popular && (
-                  <span className="popular-badge">{t.packages.mostPopular}</span>
-                )}
-                <h4>{lang === 'bn' ? pkg.nameBn : pkg.nameEn}</h4>
-                <p className="package-desc">{lang === 'bn' ? pkg.descriptionBn : pkg.descriptionEn}</p>
-
-                <div className="package-price-wrap">
-                  <span className="price-val">
-                    {currency === 'bdt' ? `৳ ${pkg.priceBdt}` : `$ ${pkg.priceUsd}`}
-                  </span>
-                  <span className="period-val">/{lang === 'bn' ? pkg.periodBn : pkg.periodEn}</span>
-                </div>
-
-                <ul className="package-features">
-                  {(lang === 'bn' ? pkg.featuresBn : pkg.featuresEn).map((f, i) => (
-                    <li key={i}>
-                      <CheckCircle2 size={15} className="pkg-check" />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  to={`/quotation?package=${pkg.id}`}
-                  className={`btn ${pkg.popular ? 'btn-primary' : 'btn-ghost'} full-width`}
-                >
-                  {t.packages.bookPackage}
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* LEADERSHIP & HQ SHOWCASE BANNER */}
       <section className="section leadership-banner-section">
@@ -441,8 +345,7 @@ export default function Home() {
                   <span className="terminal-title">STD Corporate Office</span>
                 </div>
                 <div className="office-card-body">
-                  <p><strong>Location:</strong> Level 19, Simpletree Attalika</p>
-                  <p><strong>Address:</strong> 134 Gulshan Avenue, Dhaka 1212</p>
+                  <p><strong>Address:</strong> {lang === 'bn' ? company.addressBn : company.address}</p>
                   <p><strong>Email:</strong> {company.email}</p>
                   <p><strong>Hotline:</strong> {company.phone}</p>
                   <p><strong>Uptime SLA:</strong> 99.98% Monitored</p>

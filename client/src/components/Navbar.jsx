@@ -17,7 +17,6 @@ export default function Navbar() {
     { to: '/services', label: t.nav.services },
     { to: '/quotation', label: t.nav.quotation },
     { to: '/case-studies', label: t.nav.caseStudies },
-    { to: '/packages', label: t.nav.packages },
     { to: '/contact', label: t.nav.contact },
   ];
 

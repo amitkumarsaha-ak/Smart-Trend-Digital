@@ -24,7 +24,7 @@ const company = {
   whatsapp: "+880 18545-55530",
   email: "std.com.bd@gmail.com",
   website: "www.std.com.bd",
-  address: "Simpletree Attalika (Level 19), 134 Gulshan Avenue, Dhaka 1212, Bangladesh",
+  address: "Simpletree Attalika (Level 19), Gulshan Avenue, Dhaka 1212",
   memberships: ["BASIS", "BIIN"]
 };
 

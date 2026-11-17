@@ -26,7 +26,7 @@ export default function Quotation() {
             </span>
             <span className="guarantee-item">
               <ShieldCheck size={16} />
-              <span>{lang === 'bn' ? 'কোনো লুকায়িত খরচ নেই' : '100% Transparent Pricing'}</span>
+              <span>{lang === 'bn' ? 'স্বচ্ছ ও নির্ভরযোগ্য প্রস্তাবনা' : '100% Transparent Proposals'}</span>
             </span>
             <span className="guarantee-item">
               <MessageCircle size={16} />

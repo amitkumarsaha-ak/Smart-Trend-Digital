@@ -28,7 +28,7 @@ export default function About() {
             </p>
             <p>
               {lang === 'bn'
-                ? `আমাদের অফিস ঢাকার বাণিজ্যিক প্রাণকেন্দ্র গুলশান এভিনিউতে অবস্থিত সিম্পলট্রি অট্টালিকার ১৯ তলায়। এখান থেকে আমরা দেশের শীর্ষ ক্লাব, জাতীয় অ্যাওয়ার্ড অনুষ্ঠান এবং প্রবৃদ্ধিশীল কোম্পানিগুলোকে সেবা দিয়ে আসছি।`
+                ? `আমাদের অফিস ঢাকার বাণিজ্যিক প্রাণকেন্দ্র ${company.addressBn}-এ অবস্থিত। এখান থেকে আমরা দেশের শীর্ষ ক্লাব, জাতীয় অ্যাওয়ার্ড অনুষ্ঠান এবং প্রবৃদ্ধিশীল কোম্পানিগুলোকে সেবা দিয়ে আসছি।`
                 : `Operating from our corporate office at ${company.address}, we serve high-profile clubs, national innovation awards, commercial real estate developers, and ambitious SMEs who demand international digital standards paired with deep local understanding.`}
             </p>
 
@@ -74,7 +74,7 @@ export default function About() {
                 <h4>Smart Trend Digital (STD)</h4>
                 <p className="about-card-address">
                   <MapPin size={14} className="pin-icon" />
-                  <span>Simpletree Attalika (Level 19), 134 Gulshan Avenue, Dhaka</span>
+                  <span>{lang === 'bn' ? company.addressBn : company.address}</span>
                 </p>
                 <div className="about-stats-mini">
                   <div className="mini-stat">

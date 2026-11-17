@@ -11,7 +11,6 @@ export default function QuotationCalculator({ defaultCategory = 'web-apps-platfo
   const [selectedCategory, setSelectedCategory] = useState(defaultCategory);
   const [selectedService, setSelectedService] = useState(defaultSlug || '');
   const [scope, setScope] = useState('growth');
-  const [currency, setCurrency] = useState('bdt'); // 'bdt' | 'usd'
   const [deadline, setDeadline] = useState('month');
   const [clientInfo, setClientInfo] = useState({
     name: '',
@@ -39,37 +38,6 @@ export default function QuotationCalculator({ defaultCategory = 'web-apps-platfo
     return activeCategory.services.find(s => s.slug === selectedService) || activeCategory.services[0];
   }, [activeCategory, selectedService]);
 
-  // Dynamic estimate calculation
-  const calculatedEstimate = useMemo(() => {
-    if (!currentServiceObj) return { min: 0, max: 0, text: '' };
-
-    const baseBdtRaw = parseInt(currentServiceObj.startingPriceBdt.replace(/[^0-9]/g, ''), 10) || 25000;
-    const baseUsdRaw = parseInt(currentServiceObj.startingPriceUsd.replace(/[^0-9]/g, ''), 10) || 250;
-
-    let multiplier = 1.0;
-    if (scope === 'essential') multiplier = 0.85;
-    if (scope === 'growth') multiplier = 1.35;
-    if (scope === 'enterprise') multiplier = 2.4;
-
-    // Timeline urgency adjustment
-    if (deadline === 'urgent') multiplier *= 1.25;
-
-    const isBdt = currency === 'bdt';
-    const base = isBdt ? baseBdtRaw : baseUsdRaw;
-
-    const min = Math.round(base * multiplier);
-    const max = Math.round(min * 1.35);
-
-    const symbol = isBdt ? '৳' : '$';
-    return {
-      min,
-      max,
-      display: `${symbol} ${min.toLocaleString()} - ${symbol} ${max.toLocaleString()}`,
-      isMonthly: currentServiceObj.startingPriceBdt.includes('/mo'),
-      isPerUnit: currentServiceObj.startingPriceBdt.includes('/unit') || currentServiceObj.startingPriceBdt.includes('/person')
-    };
-  }, [currentServiceObj, scope, deadline, currency]);
-
   const handleInputChange = (e) => {
     setClientInfo({ ...clientInfo, [e.target.name]: e.target.value });
   };
@@ -77,7 +45,7 @@ export default function QuotationCalculator({ defaultCategory = 'web-apps-platfo
   // Generate clean formatted text for WhatsApp
   const generateQuotationSummaryText = () => {
     const catName = lang === 'bn' ? activeCategory.nameBn : activeCategory.nameEn;
-    const srvName = lang === 'bn' ? currentServiceObj.titleBn : currentServiceObj.titleEn;
+    const srvName = lang === 'bn' ? currentServiceObj?.titleBn : currentServiceObj?.titleEn;
     const scopeLabel = scope === 'essential' ? t.quotation.scopeEssential : (scope === 'growth' ? t.quotation.scopeGrowth : t.quotation.scopeEnterprise);
     const deadlineLabel = deadline === 'urgent' ? t.quotation.deadlineUrgent : (deadline === 'month' ? t.quotation.deadlineMonth : t.quotation.deadlineExtended);
 
@@ -88,7 +56,7 @@ export default function QuotationCalculator({ defaultCategory = 'web-apps-platfo
       `*Service:* ${srvName}\n` +
       `*Project Scope:* ${scopeLabel}\n` +
       `*Timeline:* ${deadlineLabel}\n` +
-      `*Estimated Range:* ${calculatedEstimate.display} ${calculatedEstimate.isMonthly ? '(Monthly)' : ''}\n\n` +
+      `*Quotation Type:* Custom Corporate Proposal\n\n` +
       `*Project Notes:*\n${clientInfo.notes || 'No specific notes entered.'}\n\n` +
       `Sent via www.std.com.bd`;
   };
@@ -118,11 +86,9 @@ export default function QuotationCalculator({ defaultCategory = 'web-apps-platfo
       email: clientInfo.email,
       phone: clientInfo.phone,
       serviceCategory: activeCategory.nameEn,
-      service: currentServiceObj.titleEn,
+      service: currentServiceObj?.titleEn,
       scope,
       deadline,
-      estimatedRange: calculatedEstimate.display,
-      currency: currency.toUpperCase(),
       message: clientInfo.notes || 'Quotation generated online',
       type: 'quotation_request'
     };
@@ -159,25 +125,6 @@ export default function QuotationCalculator({ defaultCategory = 'web-apps-platfo
           <h2>{t.quotation.title}</h2>
           <p className="calc-subtitle">{t.quotation.subtitle}</p>
         </div>
-        <div className="currency-switch-box">
-          <span className="currency-label">{t.quotation.currencyToggle}</span>
-          <div className="currency-pill-group">
-            <button
-              type="button"
-              className={`pill-btn ${currency === 'bdt' ? 'active' : ''}`}
-              onClick={() => setCurrency('bdt')}
-            >
-              {t.quotation.currencyBdt}
-            </button>
-            <button
-              type="button"
-              className={`pill-btn ${currency === 'usd' ? 'active' : ''}`}
-              onClick={() => setCurrency('usd')}
-            >
-              {t.quotation.currencyUsd}
-            </button>
-          </div>
-        </div>
       </div>
 
       <div className="calc-grid">
@@ -213,7 +160,7 @@ export default function QuotationCalculator({ defaultCategory = 'web-apps-platfo
             >
               {activeCategory.services.map((s) => (
                 <option key={s.slug} value={s.slug}>
-                  {lang === 'bn' ? s.titleBn : s.titleEn} ({lang === 'bn' ? 'শুরু ' : 'Starts '} {currency === 'bdt' ? `৳ ${s.startingPriceBdt}` : `$ ${s.startingPriceUsd}`})
+                  {lang === 'bn' ? s.titleBn : s.titleEn}
                 </option>
               ))}
             </select>
@@ -387,17 +334,16 @@ export default function QuotationCalculator({ defaultCategory = 'web-apps-platfo
                 </ul>
               </div>
 
-              {/* Big Estimated Total Price */}
+              {/* Official Custom Quotation Scope Card */}
               <div className="summary-total-box">
-                <span className="total-label">{t.quotation.estimatedInvestment}</span>
-                <div className="total-price-number">
-                  {calculatedEstimate.display}
-                  {calculatedEstimate.isMonthly && <span className="period-tag">/mo</span>}
+                <span className="total-label">{lang === 'bn' ? 'অফিশিয়াল কোটেশন' : 'Official Proposal'}</span>
+                <div className="total-price-number quote-callout">
+                  {lang === 'bn' ? 'কাস্টম কোটেশন' : 'Custom Scope Quote'}
                 </div>
                 <small className="total-disclaimer">
                   {lang === 'bn' 
-                    ? '*চূড়ান্ত কোটেশন কাজের বিশদ রিকোয়ারমেন্ট পর্যালোচনার পর নির্ধারিত হবে।'
-                    : '*Final quotation subject to technical requirement review.'}
+                    ? '*আপনার প্রজেক্টের রিকোয়ারমেন্ট অনুযায়ী আমাদের টিম সরাসরি আপনার সাথে যোগাযোগ করে দ্রুততম সময়ে কোটেশন প্রদান করবে।'
+                    : '*Our executive team in Gulshan Avenue will review your scope and provide a formal quotation.'}
                 </small>
               </div>
             </div>

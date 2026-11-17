@@ -17,9 +17,9 @@ export const company = {
   hoursBn: "সোম - শনি : সকাল ১০:০০ - সন্ধ্যা ৬:০০",
   website: "www.std.com.bd",
   websiteUrl: "https://www.std.com.bd",
-  address: "Simpletree Attalika (Level 19), 134 Gulshan Avenue, Dhaka 1212, Bangladesh",
-  addressBn: "সিম্পলট্রি অট্টালিকা (লেভেল ১৯), ১৩৪ গুলশান এভিনিউ, ঢাকা ১২১২, বাংলাদেশ",
-  mapsUrl: "https://www.google.com/maps/search/?api=1&query=Simpletree+Attalika+134+Gulshan+Avenue+Dhaka",
+  address: "Simpletree Attalika (Level 19), Gulshan Avenue, Dhaka 1212",
+  addressBn: "সিম্পলট্রি অট্টালিকা (লেভেল ১৯), গুলশান এভিনিউ, ঢাকা ১২১২",
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=Simpletree+Attalika+Gulshan+Avenue+Dhaka+1212",
   memberships: [
     {
       code: "BASIS",

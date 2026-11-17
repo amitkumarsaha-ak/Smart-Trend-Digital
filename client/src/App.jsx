@@ -11,7 +11,6 @@ import Home from './pages/Home.jsx';
 import Services from './pages/Services.jsx';
 import Quotation from './pages/Quotation.jsx';
 import CaseStudies from './pages/CaseStudies.jsx';
-import Packages from './pages/Packages.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
 
@@ -28,7 +27,7 @@ export default function App() {
               <Route path="/services" element={<Services />} />
               <Route path="/quotation" element={<Quotation />} />
               <Route path="/case-studies" element={<CaseStudies />} />
-              <Route path="/packages" element={<Packages />} />
+              <Route path="/packages" element={<Navigate to="/services" replace />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<Navigate to="/" replace />} />
