@@ -13,7 +13,7 @@ Smart Trend Digital (STD) is a full-stack digital agency and smart facility engi
 
 ---
 
-## 🚀 The 6 Business Pillars (40+ Specialized Services)
+## 🚀 Core Service Areas (40+ Specialized Services)
 
 1. **Brand & Design (ব্র্যান্ড ও ডিজাইন)**
    * Graphics Design

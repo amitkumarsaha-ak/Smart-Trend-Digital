@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone, Facebook, Linkedin } from 'lucide-react';
 import Logo from './Logo.jsx';
 import { company } from '../data/company.js';
 import { serviceCategories } from '../data/servicesData.js';
@@ -33,9 +33,31 @@ export default function Footer() {
             <p className="footer-about">
               {t.footer.tagline}
             </p>
+            <div className="footer-social-row">
+              <a
+                href={company.facebook}
+                target="_blank"
+                rel="noreferrer"
+                className="footer-social-btn"
+                aria-label="Facebook"
+                title="Follow Smart Trend Digital on Facebook"
+              >
+                <Facebook size={17} />
+              </a>
+              <a
+                href={company.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="footer-social-btn"
+                aria-label="LinkedIn"
+                title="Follow Smart Trend Digital on LinkedIn"
+              >
+                <Linkedin size={17} />
+              </a>
+            </div>
           </div>
 
-          {/* COL 2: 6 BUSINESS PILLARS */}
+          {/* COL 2: SERVICE AREAS */}
           <div className="footer-col">
             <h3>{t.footer.pillarsTitle}</h3>
             <ul className="footer-service-pillars">
@@ -49,15 +71,37 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* COL 3: QUICK LINKS & CASE STUDIES */}
+          {/* COL 3: QUICK LINKS & SOCIAL */}
           <div className="footer-col">
             <h3>{t.footer.quickLinks}</h3>
             <ul>
+              <li><Link to="/about">{t.nav.about}</Link></li>
               <li><Link to="/services">{t.nav.services}</Link></li>
               <li><Link to="/quotation">{t.nav.quotation}</Link></li>
               <li><Link to="/case-studies">{t.nav.caseStudies}</Link></li>
-              <li><Link to="/about">{t.nav.about}</Link></li>
               <li><Link to="/contact">{t.nav.contact}</Link></li>
+              <li>
+                <a
+                  href={company.facebook}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="footer-link-inline-social"
+                >
+                  <Facebook size={14} className="social-inline-icon" />
+                  <span>Facebook</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={company.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="footer-link-inline-social"
+                >
+                  <Linkedin size={14} className="social-inline-icon" />
+                  <span>LinkedIn</span>
+                </a>
+              </li>
             </ul>
           </div>
 

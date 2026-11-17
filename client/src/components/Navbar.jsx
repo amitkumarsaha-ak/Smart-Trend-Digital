@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Menu, X, Globe, Phone, Mail, Clock, Sun, Moon } from 'lucide-react';
+import { Menu, X, Globe, Phone, Mail, Clock } from 'lucide-react';
 import Logo from './Logo.jsx';
 import { useLanguage } from '../context/LanguageContext.jsx';
-import { useTheme } from '../context/ThemeContext.jsx';
 import { company } from '../data/company.js';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { lang, toggleLang, t } = useLanguage();
-  const { isDark, toggleTheme } = useTheme();
 
   const links = [
     { to: '/', label: t.nav.home },
@@ -84,17 +82,6 @@ export default function Navbar() {
               <span>{t.nav.lang}</span>
             </button>
 
-            {/* Dark / Light Mode Toggle */}
-            <button
-              type="button"
-              className="theme-toggle-btn"
-              onClick={toggleTheme}
-              title={isDark ? (lang === 'bn' ? 'লাইট মোড চালু করুন' : 'Switch to Light Mode') : (lang === 'bn' ? 'ডার্ক মোড চালু করুন' : 'Switch to Dark Mode')}
-              aria-label={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-            >
-              {isDark ? <Sun size={17} className="theme-icon sun" /> : <Moon size={17} className="theme-icon moon" />}
-            </button>
-
             {/* Mobile Hamburger Button */}
             <button
               className="nav-mobile-toggle"
@@ -157,15 +144,6 @@ export default function Navbar() {
               >
                 <Globe size={18} />
                 <span>{lang === 'en' ? 'বাংলা সংস্করণ দেখুন' : 'Switch to English'}</span>
-              </button>
-
-              <button
-                type="button"
-                className="mobile-theme-switch-btn"
-                onClick={toggleTheme}
-              >
-                {isDark ? <Sun size={18} className="theme-icon sun" /> : <Moon size={18} className="theme-icon moon" />}
-                <span>{isDark ? (lang === 'bn' ? 'লাইট মোড চালু করুন' : 'Switch to Light Mode') : (lang === 'bn' ? 'ডার্ক মোড চালু করুন' : 'Switch to Dark Mode')}</span>
               </button>
 
               <div className="mobile-drawer-contact">

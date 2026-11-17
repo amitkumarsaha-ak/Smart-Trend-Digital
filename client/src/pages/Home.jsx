@@ -200,8 +200,7 @@ export default function Home() {
                   <div className="pillar-icon-box">
                     <ServiceIcon slug={cat.services[0]?.slug} size={28} />
                   </div>
-                  <div>
-                    <span className="pillar-label-badge">{lang === 'bn' ? `পিলার ০${idx + 1}` : `Pillar 0${idx + 1}`}</span>
+                  <div className="pillar-head-title">
                     <h3>{lang === 'bn' ? cat.nameBn : cat.nameEn}</h3>
                   </div>
                 </div>
@@ -237,7 +236,7 @@ export default function Home() {
 
           <div className="services-footer-cta">
             <Link to="/services" className="btn btn-secondary">
-              {lang === 'bn' ? 'সকল ৬টি প্রধান পিলার ও বিশেষায়িত সেবা দেখুন' : 'Explore All 6 Pillars & Specialized Services'}
+              {lang === 'bn' ? 'সকল সার্ভিস এরিয়াস ও বিশেষায়িত সেবা দেখুন' : 'Explore All Service Areas & Capabilities'}
               <ArrowRight size={16} />
             </Link>
           </div>

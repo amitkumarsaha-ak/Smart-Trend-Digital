@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { serviceCategories } from '../data/servicesData.js';
 import { company } from '../data/company.js';
-import { Calculator, Check, ArrowRight, MessageCircle, Send, Printer, Sparkles, AlertCircle } from 'lucide-react';
+import { Calculator, Check, ArrowRight, MessageCircle } from 'lucide-react';
 import ServiceIcon from './ServiceIcon.jsx';
 
 export default function QuotationCalculator({ defaultCategory = 'web-apps-platforms', defaultSlug = '' }) {
@@ -19,8 +19,6 @@ export default function QuotationCalculator({ defaultCategory = 'web-apps-platfo
     phone: '',
     notes: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitResult, setSubmitResult] = useState(null);
 
   // Available services in selected category
   const activeCategory = useMemo(() => {
@@ -64,57 +62,6 @@ export default function QuotationCalculator({ defaultCategory = 'web-apps-platfo
   const handleSendWhatsApp = () => {
     const text = encodeURIComponent(generateQuotationSummaryText());
     window.open(`https://wa.me/${company.whatsappClean}?text=${text}`, '_blank');
-  };
-
-  const handlePrint = () => {
-    window.print();
-  };
-
-  const handleSubmitApi = async (e) => {
-    e.preventDefault();
-    if (!clientInfo.name || !clientInfo.email || !clientInfo.phone) {
-      alert(lang === 'bn' ? 'অনুগ্রহ করে নাম, ইমেইল এবং ফোন নম্বর প্রদান করুন।' : 'Please fill in your name, email, and phone number.');
-      return;
-    }
-
-    setIsSubmitting(true);
-    setSubmitResult(null);
-
-    const payload = {
-      name: clientInfo.name,
-      company: clientInfo.company,
-      email: clientInfo.email,
-      phone: clientInfo.phone,
-      serviceCategory: activeCategory.nameEn,
-      service: currentServiceObj?.titleEn,
-      scope,
-      deadline,
-      message: clientInfo.notes || 'Quotation generated online',
-      type: 'quotation_request'
-    };
-
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      const data = await res.json();
-      if (res.ok && data.ok) {
-        setSubmitResult({ success: true, message: t.quotation.successDesc });
-      } else {
-        setSubmitResult({ success: false, message: data.error || 'Submission failed. Please send via WhatsApp or email.' });
-      }
-    } catch {
-      setSubmitResult({
-        success: false,
-        message: lang === 'bn' 
-          ? 'সার্ভারে কানেক্ট করা যায়নি। দয়া করে সরাসরি হোয়াটসঅ্যাপে পাঠান।' 
-          : 'Could not reach server. Please send via WhatsApp directly.'
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
   };
 
   return (
@@ -348,47 +295,21 @@ export default function QuotationCalculator({ defaultCategory = 'web-apps-platfo
               </div>
             </div>
 
-            {submitResult && (
-              <div className={`submit-feedback ${submitResult.success ? 'success' : 'error'}`}>
-                {submitResult.success ? <Sparkles size={16} /> : <AlertCircle size={16} />}
-                <span>{submitResult.message}</span>
-              </div>
-            )}
-
             {/* ACTION BUTTONS */}
             <div className="summary-actions no-print">
               <button
                 type="button"
-                className="btn-action btn-whatsapp"
+                className="btn-action btn-whatsapp full-width"
                 onClick={handleSendWhatsApp}
               >
                 <MessageCircle size={18} />
                 <span>{t.quotation.sendWhatsApp}</span>
               </button>
-
-              <button
-                type="button"
-                className="btn-action btn-submit"
-                onClick={handleSubmitApi}
-                disabled={isSubmitting}
-              >
-                <Send size={18} />
-                <span>{isSubmitting ? t.quotation.submitting : t.quotation.submitRequest}</span>
-              </button>
-
-              <button
-                type="button"
-                className="btn-action btn-print"
-                onClick={handlePrint}
-              >
-                <Printer size={18} />
-                <span>{t.quotation.printPdf}</span>
-              </button>
             </div>
 
             <div className="summary-footer-meta">
               <span>{company.address}</span>
-              <span>{company.phone} Â· {company.email}</span>
+              <span>{company.phone} • {company.email}</span>
             </div>
           </div>
         </div>

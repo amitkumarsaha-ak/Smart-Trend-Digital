@@ -17,7 +17,7 @@ export const translations = {
       titleHighlight: " Smart Digital Systems.",
       lead: "From brand design, paid marketing, and web platforms to AI chatbots and enterprise facility MEP engineering — Smart Trend Digital powers Bangladesh's fastest growing businesses and institutions.",
       getQuotation: "Get Instant Quotation",
-      exploreServices: "Explore All 6 Pillars",
+      exploreServices: "Explore Service Areas",
       highlights: [
         "Strategy, creative & engineering under one roof",
         "Official BASIS & BIIN Partner member",
@@ -38,7 +38,7 @@ export const translations = {
     },
     services: {
       eyebrow: "Comprehensive Capabilities",
-      title: "Our 6 Business Pillars",
+      title: "Our Service Areas",
       subtitle: "From creative digital marketing to mission-critical facility MEP systems, we deliver end-to-end execution without vendor fragmentation.",
       allTab: "All Categories",
       viewAll: "Explore All Services",
@@ -47,9 +47,9 @@ export const translations = {
       startingFrom: "Starting from"
     },
     quotation: {
-      eyebrow: "Interactive Calculator",
-      title: "Get a Tailored Quotation",
-      subtitle: "Select your required services, specify your project budget and timeline, and generate an instant quotation summary with one-click WhatsApp export.",
+      eyebrow: "Interactive Quotation Tool",
+      title: "Get Your Custom Quote",
+      subtitle: "Select your required services, set your project budget and timeline, and receive an instant quotation summary with one-click WhatsApp sharing.",
       step1Title: "1. Select Service Category",
       step2Title: "2. Choose Specific Service",
       step3Title: "3. Choose Project Scope & Scale",
@@ -143,7 +143,7 @@ export const translations = {
     footer: {
       tagline: "High-impact digital products, brand identities, and smart facility MEP engineering solutions in Dhaka, Bangladesh.",
       quickLinks: "Quick Links",
-      pillarsTitle: "6 Business Pillars",
+      pillarsTitle: "Service Areas",
       contactTitle: "Head Office",
       allRights: "All rights reserved.",
       designedFor: "Member: BASIS & BIIN | Gulshan 2, Dhaka"
@@ -167,7 +167,7 @@ export const translations = {
       titleHighlight: " বিশ্বমানের ডিজিটাল সিস্টেম।",
       lead: "ব্র্যান্ড ডিজাইন, পেইড ডিজিটাল মার্কেটিং এবং ওয়েব প্ল্যাটফর্ম থেকে শুরু করে এআই চ্যাটবট ও সেন্ট্রাল ফ্যাসিলিটি এমইপি ইঞ্জিনিয়ারিং — স্মার্ট ট্রেন্ড ডিজিটাল আপনার প্রতিষ্ঠানের একমাত্র নির্ভরযোগ্য পার্টনার।",
       getQuotation: "অনলাইন কোটেশন ক্যালকুলেট করুন",
-      exploreServices: "আমাদের ৬টি সার্ভিস উইং দেখুন",
+      exploreServices: "আমাদের সার্ভিস এরিয়া দেখুন",
       highlights: [
         "একই ছাদের নিচে স্ট্র্যাটেজি, ডিজাইন ও ইঞ্জিনিয়ারিং",
         "বেসিস (BASIS) ও বিআইআইএন (BIIN) এর অফিশিয়াল সদস্য",
@@ -188,7 +188,7 @@ export const translations = {
     },
     services: {
       eyebrow: "আমাদের পূর্ণাঙ্গ সক্ষমতা",
-      title: "আমাদের ৬টি মূল বিজনেস পিলার",
+      title: "আমাদের মূল সার্ভিস এরিয়াস",
       subtitle: "ক্রিয়েটিভ ব্র্যান্ডিং থেকে শুরু করে বিল্ডিংয়ের টেকনিক্যাল এমইপি সার্ভিস — সব সেবা পাবেন এক বিশ্বস্ত প্রতিষ্ঠান থেকেই।",
       allTab: "সব ক্যাটাগরি",
       viewAll: "সবগুলো সেবা বিস্তারিত দেখুন",
@@ -197,9 +197,9 @@ export const translations = {
       startingFrom: "শুরু মাত্র"
     },
     quotation: {
-      eyebrow: "ইন্টারেক্টিভ ক্যালকুলেটর",
-      title: "সহজেই সঠিক কোটেশন পান",
-      subtitle: "আপনার কাঙ্ক্ষিত সেবা নির্বাচন করুন, বাজেট ও সময়সীমা নির্ধারণ করুন এবং তাৎক্ষণিকভাবে কোটেশনের সামারি তৈরি করে হোয়াটসঅ্যাপে সরাসরি বুকিং দিন।",
+      eyebrow: "ইন্টারেক্টিভ কোটেশন টুল",
+      title: "আপনার কাস্টম কোটেশন পান",
+      subtitle: "আপনার প্রয়োজনীয় সেবা নির্বাচন করুন, প্রজেক্ট বাজেট ও সময়সীমা নির্ধারণ করুন এবং তাৎক্ষণিক কোটেশন সামারি সরাসরি হোয়াটসঅ্যাপে শেয়ার করুন।",
       step1Title: "১. সার্ভিস ক্যাটাগরি নির্বাচন করুন",
       step2Title: "২. নির্দিষ্ট সেবা বাছাই করুন",
       step3Title: "৩. কাজের পরিধি ও স্কেল নির্ধারণ করুন",
@@ -293,7 +293,7 @@ export const translations = {
     footer: {
       tagline: "উচ্চমানের ডিজিটাল পণ্য, ব্র্যান্ড পরিচয় এবং সেন্ট্রাল ফ্যাসিলিটি এমইপি ইঞ্জিনিয়ারিং সল্যুশন — ঢাকা, বাংলাদেশ।",
       quickLinks: "প্রয়োজনীয় লিংক",
-      pillarsTitle: "৬টি মূল উইং",
+      pillarsTitle: "সার্ভিস এরিয়াস",
       contactTitle: "হেড অফিস",
       allRights: "সর্বস্বত্ব সংরক্ষিত।",
       designedFor: "সদস্য: বেসিস (BASIS) ও বিআইআইএন (BIIN) | গুলশান ২, ঢাকা"

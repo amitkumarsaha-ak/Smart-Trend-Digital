@@ -47,7 +47,7 @@ export default function Services() {
             <input
               type="text"
               className="search-input"
-              placeholder={lang === 'bn' ? 'যেকোনো সেবা খুঁজুন (যেমন: SEO, Chiller, React, Chatbot, AC)...' : 'Search across all 6 core pillars (e.g. SEO, Chiller, React, Chatbot, AC)...'}
+              placeholder={lang === 'bn' ? 'যেকোনো সেবা খুঁজুন (যেমন: SEO, Chiller, React, Chatbot, AC)...' : 'Search across all service areas (e.g. SEO, Chiller, React, Chatbot, AC)...'}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -74,7 +74,7 @@ export default function Services() {
               onClick={() => setSelectedCat('all')}
             >
               <Filter size={15} />
-              <span>{t.services.allTab} (6)</span>
+              <span>{t.services.allTab}</span>
             </button>
             {serviceCategories.map((c) => (
               <button
@@ -97,8 +97,7 @@ export default function Services() {
                   <div className="pillar-icon-box">
                     <ServiceIcon slug={cat.services[0]?.slug} size={28} />
                   </div>
-                  <div>
-                    <span className="pillar-label-badge">{lang === 'bn' ? `পিলার ০${idx + 1}` : `Pillar 0${idx + 1}`}</span>
+                  <div className="pillar-head-title">
                     <h3>{lang === 'bn' ? cat.nameBn : cat.nameEn}</h3>
                   </div>
                 </div>

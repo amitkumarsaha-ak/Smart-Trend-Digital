@@ -17,6 +17,10 @@ export const company = {
   hoursBn: "সোম - শনি : সকাল ১০:০০ - সন্ধ্যা ৬:০০",
   website: "www.std.com.bd",
   websiteUrl: "https://www.std.com.bd",
+  facebook: "https://www.facebook.com/smarttrenddigital",
+  facebookUrl: "https://www.facebook.com/smarttrenddigital",
+  linkedin: "https://www.linkedin.com/company/smart-trend-digital",
+  linkedinUrl: "https://www.linkedin.com/company/smart-trend-digital",
   address: "Simpletree Attalika (Level 19), Gulshan Avenue, Dhaka 1212",
   addressBn: "সিম্পলট্রি অট্টালিকা (লেভেল ১৯), গুলশান এভিনিউ, ঢাকা ১২১২",
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=Simpletree+Attalika+Gulshan+Avenue+Dhaka+1212",
@@ -37,7 +41,7 @@ export const company = {
     }
   ],
   stats: [
-    { value: "6", labelEn: "Core Business Pillars", labelBn: "মূল সার্ভিস উইং" },
+    { value: "6", labelEn: "Core Service Areas", labelBn: "মূল সার্ভিস এরিয়া" },
     { value: "40+", labelEn: "Specialized Services", labelBn: "বিশেষায়িত সেবা" },
     { value: "99.98%", labelEn: "System Reliability", labelBn: "সিস্টেম রিলায়াবিলিটি" },
     { value: "24/7", labelEn: "Emergency Support", labelBn: "২৪/৭ জরুরি সাপোর্ট" }
