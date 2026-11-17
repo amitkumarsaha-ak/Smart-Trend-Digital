@@ -142,7 +142,8 @@ export const translations = {
     },
     footer: {
       tagline: "High-impact digital products, brand identities, and smart facility MEP engineering solutions in Dhaka, Bangladesh.",
-      quickLinks: "Quick Links",
+      company: "Company",
+      quickLinks: "Company",
       pillarsTitle: "Service Areas",
       contactTitle: "Head Office",
       allRights: "All rights reserved.",
@@ -292,7 +293,8 @@ export const translations = {
     },
     footer: {
       tagline: "উচ্চমানের ডিজিটাল পণ্য, ব্র্যান্ড পরিচয় এবং সেন্ট্রাল ফ্যাসিলিটি এমইপি ইঞ্জিনিয়ারিং সল্যুশন — ঢাকা, বাংলাদেশ।",
-      quickLinks: "প্রয়োজনীয় লিংক",
+      company: "কোম্পানি",
+      quickLinks: "কোম্পানি",
       pillarsTitle: "সার্ভিস এরিয়াস",
       contactTitle: "হেড অফিস",
       allRights: "সর্বস্বত্ব সংরক্ষিত।",
