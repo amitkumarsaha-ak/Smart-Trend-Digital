@@ -37,7 +37,7 @@ export default function WhatsAppButton() {
       query: lang === 'bn' ? 'ডিজিটাল মার্কেটিং ও এসইও প্যাকেজ সম্পর্কে জানতে চাই।' : 'What digital marketing & SEO packages do you offer?'
     },
     {
-      label: lang === 'bn' ? '❄️ ফ্যাসিলিটি ও এইচভিএসি (MEP)' : '❄️ Facility & HVAC (MEP)',
+      label: lang === 'bn' ? '❄️ সেন্ট্রাল এসি ও MEP সার্ভিস' : '❄️ Central AC & MEP Services',
       query: lang === 'bn' ? 'সেন্ট্রাল এসি ও ফ্যাসিলিটি ইঞ্জিনিয়ারিং সেবা সম্পর্কে বলুন।' : 'Tell me about your Facility & MEP engineering support.'
     },
     {
@@ -57,9 +57,9 @@ export default function WhatsAppButton() {
     }
   }, [isOpen, messages]);
 
-  // Direct Click-to-Chat without saving phone number (Same as #1 wa.me)
+  // Direct Click-to-Chat without saving phone number (Opens official WhatsApp)
   const openWhatsApp = (customText) => {
-    const text = (customText || input).trim();
+    const text = (typeof customText === 'string' ? customText : input).trim();
     const targetUrl = text
       ? `https://wa.me/${company.whatsappClean}?text=${encodeURIComponent(text)}`
       : company.whatsappHref;
@@ -89,7 +89,7 @@ export default function WhatsAppButton() {
 
     setInput('');
 
-    // Launch WhatsApp directly without requiring number saving
+    // Open WhatsApp directly without saving number
     window.open(targetUrl, '_blank', 'noopener,noreferrer');
   };
 
@@ -130,11 +130,7 @@ export default function WhatsAppButton() {
 
           {/* WhatsApp Messages Scrollable Body */}
           <div className="whatsapp-chat-body">
-            <div className="wa-encryption-badge">
-              <span>🔒 {lang === 'bn' ? 'কোনো নাম্বার সেভ না করেই সরাসরি হোয়াটসঅ্যাপ চ্যাট' : 'Direct WhatsApp chat • No number save required'}</span>
-            </div>
-
-            {/* Direct 1-Click Launch Button */}
+            {/* Direct 1-Click WhatsApp Launch Button at Top */}
             <a
               href={company.whatsappHref}
               target="_blank"
@@ -144,11 +140,15 @@ export default function WhatsAppButton() {
               <MessageCircle size={18} />
               <span>
                 {lang === 'bn'
-                  ? 'সরাসরি হোয়াটসঅ্যাপে চ্যাট করুন'
-                  : 'Chat on WhatsApp (+880 18545-55530)'}
+                  ? 'সরাসরি হোয়াটসঅ্যাপে চ্যাট করুন (কোনো নাম্বার সেভ ছাড়া)'
+                  : 'Start Chat on WhatsApp (No number save required)'}
               </span>
               <ExternalLink size={14} className="wa-launch-arrow" />
             </a>
+
+            <div className="wa-encryption-badge">
+              <span>🔒 {lang === 'bn' ? 'অফিশিয়াল হোয়াটসঅ্যাপ সংযোগ (+880 18545-55530)' : 'Official WhatsApp Link (+880 18545-55530)'}</span>
+            </div>
 
             {messages.map((msg) => (
               <div

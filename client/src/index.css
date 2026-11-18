@@ -3931,6 +3931,103 @@ p {
   transform: scale(1.05);
 }
 
+.wa-direct-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.wa-phone-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--white);
+  border: 1px solid #d1d7db;
+  border-radius: 12px;
+  padding: 0.35rem 0.75rem;
+  transition: border-color 0.2s ease;
+}
+
+.wa-phone-row:focus-within {
+  border-color: #25d366;
+  box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.15);
+}
+
+.wa-phone-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.78rem;
+  color: #111b21;
+}
+
+.wa-input-icon {
+  color: #075e54;
+  flex-shrink: 0;
+}
+
+.wa-active-contact-tag {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e7fed9;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.72rem;
+  color: #065f46;
+  font-weight: 600;
+}
+
+.btn-change-phone {
+  background: none;
+  border: none;
+  color: #0284c7;
+  font-size: 0.68rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.btn-change-phone:hover {
+  color: #0369a1;
+}
+
+.wa-alert-notice {
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: #991b1b;
+  border-radius: 8px;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.wa-footer-links-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.15rem;
+}
+
+.wa-footer-external-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.68rem;
+  color: #54656f;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.wa-footer-external-link:hover {
+  color: #075e54;
+  text-decoration: underline;
+}
+
 .wa-footer-caption {
   text-align: center;
   font-size: 0.66rem;

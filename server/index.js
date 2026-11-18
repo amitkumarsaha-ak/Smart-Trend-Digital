@@ -104,6 +104,54 @@ app.post("/api/contact", async (req, res) => {
   }
 });
 
+// Direct In-Web Live Message (No external tab required)
+app.post("/api/live-message", async (req, res) => {
+  const { name, phone, message, service } = req.body || {};
+
+  if (!phone?.trim() && !message?.trim()) {
+    return res.status(400).json({
+      ok: false,
+      error: "Please provide your phone number and message.",
+    });
+  }
+
+  const record = {
+    id: "LIVE-" + Date.now().toString(36).toUpperCase(),
+    name: name ? String(name).trim() : "Website Visitor",
+    phone: phone ? String(phone).trim() : "",
+    message: message ? String(message).trim() : "",
+    service: service ? String(service).trim() : "Direct Web Chat",
+    type: "live_web_message",
+    receivedAt: new Date().toISOString(),
+  };
+
+  try {
+    await fs.mkdir(dataDir, { recursive: true });
+    let existingInquiries = [];
+    try {
+      const raw = await fs.readFile(inquiriesFile, "utf8");
+      existingInquiries = JSON.parse(raw);
+      if (!Array.isArray(existingInquiries)) existingInquiries = [];
+    } catch {
+      existingInquiries = [];
+    }
+    existingInquiries.push(record);
+    await fs.writeFile(inquiriesFile, JSON.stringify(existingInquiries, null, 2));
+
+    res.json({
+      ok: true,
+      referenceId: record.id,
+      message: "Thank you! We have received your message and will respond directly to your number.",
+    });
+  } catch (err) {
+    console.error("Error saving live message:", err);
+    res.status(500).json({
+      ok: false,
+      error: "Could not save message. Please call +880 18545-55530.",
+    });
+  }
+});
+
 // Serve frontend static build
 const clientDist = path.join(__dirname, "../client/dist");
 app.use(express.static(clientDist));
