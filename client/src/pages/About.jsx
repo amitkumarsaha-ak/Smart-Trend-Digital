@@ -4,7 +4,6 @@ import { company } from '../data/company.js';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { ShieldCheck, Award, MapPin, Phone, Mail, Globe, CheckCircle2, ArrowRight, Sparkles, Building2, Users } from 'lucide-react';
 import AnimatedCounter from '../components/AnimatedCounter.jsx';
-import ClientStrip from '../components/ClientStrip.jsx';
 
 export default function About() {
   const { t, lang } = useLanguage();
@@ -131,27 +130,12 @@ export default function About() {
         </div>
       </section>
 
-      {/* STATS STRIP */}
-      <section className="section stats-strip-section">
-        <div className="container stats-flex">
-          {company.stats.map((s, idx) => (
-            <div key={idx} className="stat-unit">
-              <strong><AnimatedCounter value={s.value} /></strong>
-              <span>{lang === 'bn' ? s.labelBn : s.labelEn}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* TRUSTED CLIENT STRIP */}
-      <ClientStrip />
-
       {/* BOTTOM CTA */}
       <section className="section">
         <div className="container center-copy">
           <h2>{lang === 'bn' ? 'চলুন আপনার পরবর্তী উদ্যোগ শুরু করি' : 'Let us build the next chapter of your brand'}</h2>
           <p>
-            {lang === 'bn' 
+            {lang === 'bn'
               ? 'ওয়েবসাইট, ডিজিটাল ক্যাম্পেইন কিংবা সেন্ট্রাল ফ্যাসিলিটি সার্ভিস — আমাদের বিশেষজ্ঞ দল প্রস্তুত।'
               : 'Whether you require a new web platform, a high-converting growth campaign, or full facility MEP contracts.'}
           </p>
