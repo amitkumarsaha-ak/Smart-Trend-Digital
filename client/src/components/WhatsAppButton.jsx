@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, CheckCheck, Sparkles } from 'lucide-react';
+import { MessageCircle, X, Send, CheckCheck, Sparkles, ExternalLink } from 'lucide-react';
 import { company } from '../data/company.js';
 import { useLanguage } from '../context/LanguageContext.jsx';
 
@@ -7,13 +7,12 @@ export default function WhatsAppButton() {
   const [isOpen, setIsOpen] = useState(false);
   const [unread, setUnread] = useState(true);
   const [input, setInput] = useState('');
-  const [isTyping, setIsTyping] = useState(false);
   const { lang } = useLanguage();
   const chatMessagesEndRef = useRef(null);
 
   const initialGreeting = lang === 'bn'
-    ? 'আসসালামু আলাইকুম! স্মার্ট ট্রেন্ড ডিজিটাল (STD)-এ আপনাকে স্বাগতম। আপনার প্রজেক্ট বা সেবার বিষয়ে কীভাবে সাহায্য করতে পারি?'
-    : 'Hello! Welcome to Smart Trend Digital. How can we help you today with your web, digital marketing, AI, or facility project?';
+    ? 'আসসালামু আলাইকুম! কোনো নাম্বার সেভ না করেই স্মার্ট ট্রেন্ড ডিজিটালের সাথে সরাসরি হোয়াটসঅ্যাপে কথা বলতে পারবেন। নিচের বিষয়ে ক্লিক করুন অথবা মেসেজ লিখে পাঠান।'
+    : 'Hello! You can chat directly with Smart Trend Digital on WhatsApp without saving our number. Choose a suggested topic below or type your message.';
 
   const [messages, setMessages] = useState([
     {
@@ -27,15 +26,15 @@ export default function WhatsAppButton() {
   const quickPrompts = [
     {
       label: lang === 'bn' ? '🌐 ওয়েব ও অ্যাপ ডেভেলপমেন্ট' : '🌐 Web & App Development',
-      query: lang === 'bn' ? 'ওয়েব ও অ্যাপ ডেভেলপমেন্ট সার্ভিস সম্পর্কে জানতে চাই।' : 'Tell me about your Web & App Development services.'
+      query: lang === 'bn' ? 'ওয়েব ও অ্যাপ ডেভেলপমেন্ট সার্ভিস সম্পর্কে বিস্তারিত জানতে চাই।' : 'Tell me about your Web & App Development services.'
     },
     {
       label: lang === 'bn' ? '🤖 এআই চ্যাটবট ও অটোমেশন' : '🤖 AI Chatbots & Automation',
-      query: lang === 'bn' ? 'এআই চ্যাটবট ও অটোমেশন সল্যুশন কেমন?' : 'I need info on AI Chatbots & Business Automation.'
+      query: lang === 'bn' ? 'বিজনেস এআই চ্যাটবট ও অটোমেশন সল্যুশন কেমন?' : 'I need info on AI Chatbots & Business Automation.'
     },
     {
       label: lang === 'bn' ? '📈 ডিজিটাল মার্কেটিং ও এসইও' : '📈 Digital Marketing & SEO',
-      query: lang === 'bn' ? 'ডিজিটাল মার্কেটিং প্যাকেজ কী কী আছে?' : 'What digital marketing & SEO packages do you offer?'
+      query: lang === 'bn' ? 'ডিজিটাল মার্কেটিং ও এসইও প্যাকেজ সম্পর্কে জানতে চাই।' : 'What digital marketing & SEO packages do you offer?'
     },
     {
       label: lang === 'bn' ? '❄️ ফ্যাসিলিটি ও এইচভিএসি (MEP)' : '❄️ Facility & HVAC (MEP)',
@@ -43,7 +42,7 @@ export default function WhatsAppButton() {
     },
     {
       label: lang === 'bn' ? '💰 প্রজেক্ট কোটেশন ও বাজেট' : '💰 Pricing & Quotation',
-      query: lang === 'bn' ? 'একটি প্রজেক্টের আনুমানিক কোটেশন কীভাবে পেতে পারি?' : 'How can I get an estimated project quotation?'
+      query: lang === 'bn' ? 'একটি নতুন প্রজেক্টের আনুমানিক কোটেশন ও বাজেট কীভাবে পেতে পারি?' : 'How can I get an estimated project quotation?'
     }
   ];
 
@@ -56,79 +55,48 @@ export default function WhatsAppButton() {
       setUnread(false);
       scrollToBottom();
     }
-  }, [isOpen, messages, isTyping]);
+  }, [isOpen, messages]);
 
-  const getBotResponse = (userText) => {
-    const lower = userText.toLowerCase();
-
-    if (lower.includes('web') || lower.includes('app') || lower.includes('ওয়েব') || lower.includes('অ্যাপ') || lower.includes('react') || lower.includes('software')) {
-      return lang === 'bn'
-        ? 'আমাদের সফটওয়্যার টিম কাস্টম React, Next.js, ই-কমার্স এবং মোবাইল অ্যাপ্লিকেশনে পারদর্শী। আপনি ওয়েবসাইটের "Get a Quotation" পেজে গিয়ে তাৎক্ষণিক প্রজেক্ট এস্টিমেট পেতে পারেন অথবা আমাদের সাথে সরাসরি কথা বলুন: +880 18545-55530।'
-        : 'Our engineering division develops custom React, Next.js, e-commerce, and mobile applications. You can generate an instant quote on our "Get a Quotation" page, or call our team directly at +880 18545-55530.';
-    }
-
-    if (lower.includes('ai') || lower.includes('chatbot') || lower.includes('automation') || lower.includes('এআই') || lower.includes('বট') || lower.includes('অটোমেশন')) {
-      return lang === 'bn'
-        ? 'আমরা বাংলা ও ইংরেজি উভয় ভাষায় ইন্টেলিজেন্ট এআই চ্যাটবট এবং বিজনেস অটোমেশন ওয়ার্কফ্লো ডেভেলপ করি। আপনার বিজনেসের জন্য কাস্টম ডেমো পেতে আমাদের গুলশান অফিসে যোগাযোগ করতে পারেন।'
-        : 'We design intelligent dual-language AI chatbots and automated CRM pipelines for businesses. Reach out to our Gulshan office for a custom AI architecture demo!';
-    }
-
-    if (lower.includes('mep') || lower.includes('ac') || lower.includes('hvac') || lower.includes('chiller') || lower.includes('ফ্যাসিলিটি') || lower.includes('এসি') || lower.includes('চিলার')) {
-      return lang === 'bn'
-        ? 'আমাদের সেন্ট্রাল ফ্যাসিলিটি ইঞ্জিনিয়ারিং টিম সেন্ট্রাল এসি, চিলার, ফায়ার প্রটেকশন ও বিএমএস মেইনটেন্যান্স (AMC) সেবা প্রদান করে। হটলাইন: +880 18545-55530।'
-        : 'Our central facility MEP division handles VRF, chillers, fire detection, and 24/7 preventative maintenance contracts (AMC). Direct hotline: +880 18545-55530.';
-    }
-
-    if (lower.includes('price') || lower.includes('cost') || lower.includes('দাম') || lower.includes('খরচ') || lower.includes('বাজেট') || lower.includes('প্যাকেজ') || lower.includes('quote') || lower.includes('কোটেশন')) {
-      return lang === 'bn'
-        ? 'আমাদের স্ট্যান্ডার্ড ওয়েবসাইট প্যাকেজ ৩৫,০০০৳ থেকে এবং ডিজিটাল মার্কেটিং ২৫,০০০৳/মাস থেকে শুরু। আমাদের "Packages" মেনুতে গিয়ে বিস্তারিত তালিকা দেখতে পারেন।'
-        : 'Our web launchpad starts from ৳35,000 and marketing packages start from ৳25,000/mo. Check out our "Packages" section for comprehensive pricing.';
-    }
-
-    if (lower.includes('marketing') || lower.includes('seo') || lower.includes('মার্কেটিং') || lower.includes('এসইও') || lower.includes('ads') || lower.includes('বিজ্ঞাপন')) {
-      return lang === 'bn'
-        ? 'আমরা রেজাল্ট-ড্রিভেন মেটা ও গুগল অ্যাডস, সোশ্যাল মিডিয়া গ্রোথ এবং টেকনিক্যাল এসইও সেবা দেই। আমরা BIIN Awards 2026 এর অফিসিয়াল ডিজিটাল ক্যাম্পেইন পার্টনার।'
-        : 'We deliver high-ROAS Meta & Google Ads, technical SEO, and social media management. We are the official digital campaign partner for BIIN Awards 2026.';
-    }
-
-    return lang === 'bn'
-      ? `ধন্যবাদ আপনার বার্তার জন্য! স্মার্ট ট্রেন্ড ডিজিটাল সাপোর্ট টিম আপনার রিকোয়েস্ট নোট করেছে। আপনি সরাসরি আমাদের সাথে যোগাযোগ করতে পারেন: ফোন ${company.phone} অথবা ইমেইল ${company.email} এ।`
-      : `Thank you for reaching out! Smart Trend Digital support has logged your inquiry. You can also connect with our desk directly at ${company.phone} or ${company.email}.`;
-  };
-
-  const sendMessage = (textToSend) => {
-    const text = (textToSend || input).trim();
-    if (!text) return;
+  // Direct Click-to-Chat without saving phone number (Same as #1 wa.me)
+  const openWhatsApp = (customText) => {
+    const text = (customText || input).trim();
+    const targetUrl = text
+      ? `https://wa.me/${company.whatsappClean}?text=${encodeURIComponent(text)}`
+      : company.whatsappHref;
 
     const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    const userMsg = {
-      id: Date.now(),
-      sender: 'user',
-      text,
-      time: timeStr
-    };
 
-    setMessages((prev) => [...prev, userMsg]);
-    setInput('');
-    setIsTyping(true);
+    if (text) {
+      const userMsg = {
+        id: Date.now(),
+        sender: 'user',
+        text,
+        time: timeStr
+      };
 
-    setTimeout(() => {
-      const replyText = getBotResponse(text);
-      const botMsg = {
+      const systemReply = {
         id: Date.now() + 1,
         sender: 'bot',
-        text: replyText,
-        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        text: lang === 'bn'
+          ? 'আপনার মেসেজটি নিয়ে সরাসরি WhatsApp খোলা হচ্ছে। যদি স্বয়ংক্রিয়ভাবে ওপেন না হয়, নিচের বাটনে চাপ দিন:'
+          : 'Opening WhatsApp with your message. If it did not launch automatically, please tap below:',
+        actionUrl: targetUrl,
+        time: timeStr
       };
-      setIsTyping(false);
-      setMessages((prev) => [...prev, botMsg]);
-    }, 650);
+
+      setMessages((prev) => [...prev, userMsg, systemReply]);
+    }
+
+    setInput('');
+
+    // Launch WhatsApp directly without requiring number saving
+    window.open(targetUrl, '_blank', 'noopener,noreferrer');
   };
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      sendMessage();
+      openWhatsApp();
     }
   };
 
@@ -146,7 +114,7 @@ export default function WhatsAppButton() {
               <h4>Smart Trend Digital</h4>
               <p>
                 <span className="wa-status-text">
-                  {lang === 'bn' ? 'সরাসরি সহায়তা • অনলাইনে আছেন' : 'Online • Typically replies instantly'}
+                  {lang === 'bn' ? 'হোয়াটসঅ্যাপ হটলাইন • অনলাইনে আছেন' : 'WhatsApp Hotline • Online Now'}
                 </span>
               </p>
             </div>
@@ -163,8 +131,24 @@ export default function WhatsAppButton() {
           {/* WhatsApp Messages Scrollable Body */}
           <div className="whatsapp-chat-body">
             <div className="wa-encryption-badge">
-              <span>🔒 {lang === 'bn' ? 'ওয়েবসাইটে সুরক্ষিত সরাসরি চ্যাট' : 'Direct on-site support channel'}</span>
+              <span>🔒 {lang === 'bn' ? 'কোনো নাম্বার সেভ না করেই সরাসরি হোয়াটসঅ্যাপ চ্যাট' : 'Direct WhatsApp chat • No number save required'}</span>
             </div>
+
+            {/* Direct 1-Click Launch Button */}
+            <a
+              href={company.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="wa-direct-launch-btn"
+            >
+              <MessageCircle size={18} />
+              <span>
+                {lang === 'bn'
+                  ? 'সরাসরি হোয়াটসঅ্যাপে চ্যাট করুন'
+                  : 'Chat on WhatsApp (+880 18545-55530)'}
+              </span>
+              <ExternalLink size={14} className="wa-launch-arrow" />
+            </a>
 
             {messages.map((msg) => (
               <div
@@ -173,9 +157,19 @@ export default function WhatsAppButton() {
               >
                 <div className="wa-bubble">
                   {msg.sender === 'bot' && (
-                    <span className="wa-sender-tag">STD Support</span>
+                    <span className="wa-sender-tag">STD WhatsApp Support</span>
                   )}
                   <p className="wa-message-text">{msg.text}</p>
+                  {msg.actionUrl && (
+                    <a
+                      href={msg.actionUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="wa-fallback-link"
+                    >
+                      <span>{lang === 'bn' ? '📲 হোয়াটসঅ্যাপ ওপেন করুন' : '📲 Open WhatsApp'}</span>
+                    </a>
+                  )}
                   <div className="wa-message-meta">
                     <span className="wa-timestamp">{msg.time}</span>
                     {msg.sender === 'user' && (
@@ -186,21 +180,11 @@ export default function WhatsAppButton() {
               </div>
             ))}
 
-            {isTyping && (
-              <div className="wa-message-row incoming">
-                <div className="wa-bubble wa-typing-bubble">
-                  <span className="wa-typing-dot" />
-                  <span className="wa-typing-dot" />
-                  <span className="wa-typing-dot" />
-                </div>
-              </div>
-            )}
-
-            {/* Quick action chips inside the chat */}
+            {/* Quick action chips that open WhatsApp with topic prefilled */}
             <div className="wa-quick-chips">
               <span className="wa-chips-label">
                 <Sparkles size={12} />
-                {lang === 'bn' ? 'দ্রুত তথ্য নির্বাচন করুন:' : 'Suggested topics:'}
+                {lang === 'bn' ? 'সরাসরি হোয়াটসঅ্যাপে জানতে চান?' : 'Quick topics for WhatsApp:'}
               </span>
               <div className="wa-chips-grid">
                 {quickPrompts.map((q, idx) => (
@@ -208,9 +192,9 @@ export default function WhatsAppButton() {
                     key={idx}
                     type="button"
                     className="wa-chip-btn"
-                    onClick={() => sendMessage(q.query)}
+                    onClick={() => openWhatsApp(q.query)}
                   >
-                    {q.label}
+                    <span>{q.label}</span>
                   </button>
                 ))}
               </div>
@@ -225,7 +209,7 @@ export default function WhatsAppButton() {
               <input
                 type="text"
                 className="wa-text-input"
-                placeholder={lang === 'bn' ? 'এখানে মেসেজ লিখুন...' : 'Type a message...'}
+                placeholder={lang === 'bn' ? 'মেসেজ লিখুন (সরাসরি হোয়াটসঅ্যাপে যাবে)...' : 'Type message to send on WhatsApp...'}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
@@ -233,15 +217,16 @@ export default function WhatsAppButton() {
               <button
                 type="button"
                 className="wa-send-btn"
-                onClick={() => sendMessage()}
+                onClick={() => openWhatsApp()}
                 disabled={!input.trim()}
-                aria-label="Send message"
+                aria-label="Send message to WhatsApp"
+                title={lang === 'bn' ? 'হোয়াটসঅ্যাপে পাঠান' : 'Send to WhatsApp'}
               >
                 <Send size={16} />
               </button>
             </div>
             <div className="wa-footer-caption">
-              <span>Smart Trend Digital • Gulshan Avenue, Dhaka</span>
+              <span>{company.phone} • Simpletree Attalika, Gulshan</span>
             </div>
           </div>
         </div>
@@ -253,7 +238,7 @@ export default function WhatsAppButton() {
         className="whatsapp-trigger-btn"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Open on-site WhatsApp chat"
-        title="Chat with Smart Trend Digital"
+        title="Chat on WhatsApp with Smart Trend Digital"
       >
         <span className="pulse-ring" />
         {unread && <span className="unread-dot" />}

@@ -3683,6 +3683,57 @@ p {
   font-weight: 600;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
   margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+.wa-direct-launch-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  background: #25d366;
+  color: #ffffff !important;
+  padding: 0.65rem 0.85rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+  transition: all 0.2s ease;
+  margin-bottom: 0.35rem;
+}
+
+.wa-direct-launch-btn:hover {
+  background: #1ebc59;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.45);
+  color: #ffffff !important;
+}
+
+.wa-launch-arrow {
+  margin-left: auto;
+  opacity: 0.85;
+}
+
+.wa-fallback-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.45rem;
+  padding: 0.35rem 0.75rem;
+  background: #25d366;
+  color: #ffffff !important;
+  border-radius: 8px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.wa-fallback-link:hover {
+  background: #1ebc59;
+  color: #ffffff !important;
 }
 
 .wa-message-row {
