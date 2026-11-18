@@ -22,7 +22,7 @@ export default function CaseStudies() {
         <div className="container">
           <div className="case-studies-detail-list">
             {caseStudies.map((cs, idx) => (
-              <article key={cs.id} className="case-study-deep-card">
+              <article key={cs.id} id={cs.id} className="case-study-deep-card">
                 <div className="deep-card-grid">
                   <div className="deep-card-main">
                     <div className="deep-card-tag-row">

@@ -22,9 +22,7 @@ export const translations = {
         "Strategy, creative & engineering under one roof",
         "Official BASIS & BIIN Partner member",
         "Trusted by Gulshan Club, BIIN Awards & Gulshan Society"
-      ],
-      founderBadge: "Executive Leadership",
-      founderOffice: "Gulshan Avenue, Dhaka"
+      ]
     },
     clientStrip: {
       title: "TRUSTED BY LEADING CLUBS, AWARDS & CORPORATES",
@@ -35,6 +33,11 @@ export const translations = {
       saintsClub: "Saints Club",
       gulshanSociety: "Gulshan Society",
       simpletree: "Simpletree Attalika"
+    },
+    clientLogos: {
+      eyebrow: "OUR CLIENTS & PARTNERS",
+      title: "Trusted by Leading Brands, Corporations & Institutions",
+      subtitle: "Empowering visionary enterprises, national award programs, and premier lifestyle platforms across Bangladesh with world-class digital solutions."
     },
     services: {
       eyebrow: "Comprehensive Capabilities",
@@ -101,7 +104,6 @@ export const translations = {
       eyebrow: "About Smart Trend Digital",
       title: "Bridging Strategy, Creative, and Engineering",
       subtitle: "Headquartered on Gulshan Avenue, Dhaka, STD is designed to end vendor fragmentation for ambitious Bangladeshi brands.",
-      cardTitle: "Founder & CEO Profile",
       visionTitle: "Our Three Core Principles",
       p1: "Clarity",
       p1Desc: "Transparent pricing, explicit milestones, and measurable KPIs so you always know what is being shipped.",
@@ -173,9 +175,7 @@ export const translations = {
         "একই ছাদের নিচে স্ট্র্যাটেজি, ডিজাইন ও ইঞ্জিনিয়ারিং",
         "বেসিস (BASIS) ও বিআইআইএন (BIIN) এর অফিশিয়াল সদস্য",
         "গুলশান ক্লাব, বিআইআইএন অ্যাওয়ার্ডস ও গুলশান সোসাইটির বিশ্বস্ত"
-      ],
-      founderBadge: "প্রতিষ্ঠাতা ও নির্বাহী নেতৃত্ব",
-      founderOffice: "গুলশান এভিনিউ, ঢাকা"
+      ]
     },
     clientStrip: {
       title: "শীর্ষস্থানীয় প্রতিষ্ঠান ও ক্লাবের বিশ্বস্ত অংশীদার",
@@ -186,6 +186,11 @@ export const translations = {
       saintsClub: "সেইন্টস ক্লাব",
       gulshanSociety: "গুলশান সোসাইটি",
       simpletree: "সিম্পলট্রি অট্টালিকা"
+    },
+    clientLogos: {
+      eyebrow: "আমাদের ক্লায়েন্ট ও পার্টনারবৃন্দ",
+      title: "শীর্ষস্থানীয় ব্র্যান্ড, করপোরেট ও প্রতিষ্ঠানের বিশ্বস্ত পার্টনার",
+      subtitle: "বাংলাদেশের শীর্ষস্থানীয় করপোরেট প্রতিষ্ঠান, জাতীয় অ্যাওয়ার্ডস এবং আধুনিক প্ল্যাটফর্ম সমূহের ডিজিটাল রূপান্তর ও টেকসই সমাধান।"
     },
     services: {
       eyebrow: "আমাদের পূর্ণাঙ্গ সক্ষমতা",
@@ -252,7 +257,6 @@ export const translations = {
       eyebrow: "স্মার্ট ট্রেন্ড ডিজিটাল পরিচিতি",
       title: "স্ট্র্যাটেজি, ক্রিয়েটিভিটি এবং ইঞ্জিনিয়ারিংয়ের অনন্য সমন্বয়",
       subtitle: "ঢাকার গুলশান এভিনিউতে অবস্থিত এসটিডি প্রতিষ্ঠিত হয়েছে যেকোনো প্রতিষ্ঠানের ডিজিটাল ও টেকনিক্যাল রূপান্তরকে সহজ ও গতিশীল করার লক্ষ্যে।",
-      cardTitle: "প্রতিষ্ঠাতা ও নির্বাহী পরিচিতি",
       visionTitle: "আমাদের ৩টি মূল ভিত্তি",
       p1: "স্বচ্ছতা (Clarity)",
       p1Desc: "স্পষ্ট মূল্যতালিকা, সময়সীমা ও পরিমাপযোগ্য লক্ষ্য — যাতে প্রতিটি ধাপে কাজের অগ্রগতি আপনার জানা থাকে।",

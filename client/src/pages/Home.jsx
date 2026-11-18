@@ -12,8 +12,6 @@ import {
   CalendarCheck,
   FileCheck,
   ChevronRight,
-  PhoneCall,
-  MessageCircle,
   Maximize2,
   X,
   ExternalLink
@@ -23,6 +21,7 @@ import { company } from '../data/company.js';
 import { serviceCategories } from '../data/servicesData.js';
 import { caseStudies } from '../data/caseStudiesData.js';
 import ClientStrip from '../components/ClientStrip.jsx';
+import ClientLogoStrip from '../components/ClientLogoStrip.jsx';
 import QuotationCalculator from '../components/QuotationCalculator.jsx';
 import ServiceIcon from '../components/ServiceIcon.jsx';
 import InteractiveHeroCanvas from '../components/InteractiveHeroCanvas.jsx';
@@ -254,7 +253,7 @@ export default function Home() {
       </section>
 
       {/* CASE STUDIES WITH NUMBERS */}
-      <section className="section case-studies-section">
+      <section className="section case-studies-section" id="case-studies">
         <div className="container">
           <div className="section-head center">
             <p className="eyebrow">{t.caseStudies.eyebrow}</p>
@@ -264,7 +263,7 @@ export default function Home() {
 
           <div className="case-studies-grid">
             {caseStudies.map((cs) => (
-              <article key={cs.id} className="case-study-card">
+              <article key={cs.id} id={cs.id} className="case-study-card">
                 <div className="case-card-header">
                   <div className="case-tag-list">
                     {cs.tags.map(tag => (
@@ -307,60 +306,8 @@ export default function Home() {
         </div>
       </section>
 
-
-      {/* LEADERSHIP & HQ SHOWCASE BANNER */}
-      <section className="section leadership-banner-section">
-        <div className="container">
-          <div className="leadership-box">
-            <div className="leadership-copy">
-              <span className="eyebrow-accent">{t.about.cardTitle}</span>
-              <h2>{company.founder}</h2>
-              <p className="leadership-role">{lang === 'bn' ? company.titleBn : company.title}</p>
-              <p className="leadership-bio">
-                {lang === 'bn'
-                  ? 'স্মার্ট ট্রেন্ড ডিজিটালকে একটি উচ্চ-দক্ষতাসম্পন্ন প্রযুক্তিনির্ভর কোম্পানি হিসেবে গড়ে তোলার প্রত্যয়ে আমরা প্রতিটি ক্লায়েন্টকে দীর্ঘমেয়াদী পার্টনার হিসেবে মূল্যায়ন করি। ঢাকার গুলশান এভিনিউস্থ আমাদের হেডকোয়ার্টার থেকে আমরা দেশি ও বিদেশি উভয় ব্র্যান্ডকে আধুনিক ক্রিয়েটিভ ডিজাইন, সফটওয়্যার প্ল্যাটফর্ম ও টেকনিক্যাল ফ্যাসিলিটি ইঞ্জিনিয়ারিং সেবা প্রদান করছি।'
-                  : 'Leading Smart Trend Digital from our corporate office at Simpletree Attalika, Gulshan. We combine strategic creative intelligence, enterprise-grade software engineering, and mission-critical MEP facility maintenance under one roof — ending vendor fragmentation for forward-looking organizations.'}
-              </p>
-              <div className="leadership-affiliations">
-                <span className="affil-item"><ShieldCheck size={16} /> BASIS Official Member</span>
-                <span className="affil-item"><Award size={16} /> BIIN Strategic Partner</span>
-                <span className="affil-item"><Building2 size={16} /> Simpletree Attalika (Level 19)</span>
-              </div>
-              <div className="leadership-actions">
-                <a href={company.phoneHref} className="btn btn-primary">
-                  <PhoneCall size={16} />
-                  <span>Call {company.phone}</span>
-                </a>
-                <a href={company.whatsappHref} target="_blank" rel="noreferrer" className="btn btn-outline-white">
-                  <MessageCircle size={16} />
-                  <span>Chat on WhatsApp</span>
-                </a>
-              </div>
-            </div>
-
-            <div className="leadership-visual">
-              <div className="office-card-preview">
-                <div className="office-card-head">
-                  <span className="dot red" />
-                  <span className="dot yellow" />
-                  <span className="dot green" />
-                  <span className="terminal-title">STD Corporate Office</span>
-                </div>
-                <div className="office-card-body">
-                  <p><strong>Address:</strong> {lang === 'bn' ? company.addressBn : company.address}</p>
-                  <p><strong>Email:</strong> {company.email}</p>
-                  <p><strong>Hotline:</strong> {company.phone}</p>
-                  <p><strong>Uptime SLA:</strong> 99.98% Monitored</p>
-                  <div className="badges-row">
-                    <span className="office-badge">BASIS Certified</span>
-                    <span className="office-badge">BIIN Partner</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* CLIENT LOGOS STRIP (FEATURED PARTNERS & CLIENTS) */}
+      <ClientLogoStrip />
 
       {/* FINAL CTA STRIP */}
       <section className="section final-cta-section">

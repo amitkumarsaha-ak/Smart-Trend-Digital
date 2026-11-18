@@ -18,8 +18,6 @@ const company = {
   name: "Smart Trend Digital",
   shortName: "STD",
   tagline: "Digital Innovation, Creative Excellence & Smart Facility Solutions",
-  founder: "Moon M. Rajib",
-  title: "Founder & CEO",
   phone: "+880 18545-55530",
   whatsapp: "+880 18545-55530",
   email: "std.com.bd@gmail.com",

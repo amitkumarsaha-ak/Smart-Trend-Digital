@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 100" fill="none">
+  <g transform="translate(10, 10)">
+    <rect x="5" y="5" width="70" height="70" rx="16" fill="#0284C7" opacity="0.1"/>
+    <rect x="5" y="5" width="70" height="70" rx="16" stroke="#0284C7" stroke-width="2"/>
+    <path d="M40 20 L58 35 L48 60 L32 60 L22 35 Z" fill="#0369A1"/>
+    <path d="M40 27 L50 37 L44 54 L36 54 L30 37 Z" fill="#38BDF8"/>
+    <circle cx="40" cy="42" r="4" fill="#FFFFFF"/>
+  </g>
+  <text x="96" y="47" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="900" letter-spacing="1.5" fill="#0F172A">SAINTS CLUB</text>
+  <rect x="96" y="56" width="225" height="2" fill="#0284C7"/>
+  <text x="96" y="73" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.2" fill="#0284C7">ATHLETICS &amp; COMMUNITY LEAGUE</text>
+  <text x="96" y="86" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="500" letter-spacing="0.5" fill="#64748B">TOURNAMENT ENGINE &amp; PORTAL</text>
+</svg>

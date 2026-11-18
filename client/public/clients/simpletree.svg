@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 100" fill="none">
+  <g transform="translate(10, 10)">
+    <rect x="15" y="10" width="22" height="60" rx="2" fill="#1E293B"/>
+    <rect x="41" y="22" width="20" height="48" rx="2" fill="#334155"/>
+    <rect x="65" y="34" width="16" height="36" rx="2" fill="#64748B"/>
+    <circle cx="26" cy="22" r="2.5" fill="#38BDF8"/>
+    <circle cx="51" cy="32" r="2" fill="#38BDF8"/>
+  </g>
+  <text x="96" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="23" font-weight="800" letter-spacing="1.5" fill="#0F172A">SIMPLETREE <tspan font-weight="400" fill="#0284C7">ATTALIKA</tspan></text>
+  <rect x="96" y="55" width="245" height="2" fill="#0284C7"/>
+  <text x="96" y="72" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.2" fill="#334155">PREMIER COMMERCIAL LANDMARK</text>
+  <text x="96" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="500" letter-spacing="0.5" fill="#64748B">LEVEL 19 • GULSHAN AVENUE • DHAKA HQ</text>
+</svg>

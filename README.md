@@ -3,7 +3,6 @@
 Website: [www.std.com.bd](https://www.std.com.bd) | Email: [std.com.bd@gmail.com](mailto:std.com.bd@gmail.com) | Phone/WhatsApp: [+880 18545-55530](tel:+8801854555530)  
 Headquarters: Simpletree Attalika (Level 19), 134 Gulshan Avenue, Dhaka 1212, Bangladesh  
 Accreditations: **BASIS Member** | **BIIN Strategic Partner**  
-Founder & CEO: **Moon M. Rajib**
 
 ---
 
@@ -87,7 +86,7 @@ Smart Trend Digital (STD) is a full-stack digital agency and smart facility engi
   * **Gulshan Society**: Civic Community Hub & Resident Notice Board (10,000+ resident reach, 100% digital election voting).
 * **Transparent Pricing Packages**: Web Launchpad (৳35,000), Social Media & Ads (৳25,000/mo), Club Engine (৳75,000), AI Chatbot (৳45,000), Facility AMC (৳30,000/mo), and Awards Enterprise (৳1,50,000).
 * **WhatsApp Chat Widget on Every Page**: Pinned bottom-right with pulsing indicator, preset quick inquiry buttons, and direct WhatsApp connection to `+880 18545-55530`.
-* **"Trusted by" Client Strip**: BASIS Member, BIIN Partner, Gulshan Club, Saints Club, Gulshan Society, Simpletree Attalika.
+* **"Trusted by" Client Strips**: Institutional recognition strip (BASIS, BIIN, Gulshan Club, Saints Club, Gulshan Society, Simpletree Attalika) paired with a 2-row infinite marquee showcase of premier commercial clients (Super Star Group SSG, Ayal Corp, MetroNet, EYHOST, Flora Systems, SRRK IT, Singapore School Kinderland SBES, HyperTAG, XII, Solution9, Team Success, RedData, Smart-Lab, Fingertips, digidot).
 * **SEO-Ready & Mobile-First**: Semantic HTML5, JSON-LD Schema (LocalBusiness & Organization), OpenGraph tags, responsive layout.
 
 ---
@@ -129,14 +128,13 @@ Visit: `http://localhost:5050`
 ## 📡 API Endpoints
 
 * `GET /api/health` — Server health status check.
-* `GET /api/company` — Company profile, founder, contact info, and affiliations.
+* `GET /api/company` — Company profile, contact info, and affiliations.
 * `POST /api/contact` — Handles both general inquiries and structured quotation requests. Automatically archives to `server/data/inquiries.json` and `server/data/quotations.json`.
 
 ---
 
 ## 🏢 Company Profile
 * **Smart Trend Digital (STD)**
-* **Founder & CEO:** Moon M. Rajib
 * **Phone:** +880 18545-55530
 * **Email:** std.com.bd@gmail.com
 * **Website:** [www.std.com.bd](https://www.std.com.bd)

@@ -4,6 +4,7 @@ import { company } from '../data/company.js';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { ShieldCheck, Award, MapPin, Phone, Mail, Globe, CheckCircle2, ArrowRight, Sparkles, Building2, Users } from 'lucide-react';
 import AnimatedCounter from '../components/AnimatedCounter.jsx';
+import ClientStrip from '../components/ClientStrip.jsx';
 
 export default function About() {
   const { t, lang } = useLanguage();
@@ -24,8 +25,8 @@ export default function About() {
             <h2>{lang === 'bn' ? 'আমাদের গল্প ও দর্শন' : 'Who We Are'}</h2>
             <p>
               {lang === 'bn'
-                ? `স্মার্ট ট্রেন্ড ডিজিটাল (এসটিডি) প্রতিষ্ঠিত হয়েছে ${company.founder} এর নেতৃত্বে। বাংলাদেশে প্রযুক্তিগত উদ্ভাবন, আধুনিক ডিজাইন এবং বিল্ডিং ফ্যাসিলিটি ইঞ্জিনিয়ারিংয়ের সমন্বয় করে আমরা প্রতিষ্ঠানগুলোকে আরও দক্ষ ও আকর্ষণীয় করে তুলি।`
-                : `Smart Trend Digital (STD) was founded by ${company.founder} to bring strategic clarity, visual craft, and hard-nosed engineering into one accountable team. Too many businesses in Bangladesh still struggle with vendor fragmentation — hiring separate designers, marketers, coders, and MEP technicians. STD eliminates that friction.`}
+                ? 'স্মার্ট ট্রেন্ড ডিজিটাল (এসটিডি) বাংলাদেশে প্রযুক্তিগত উদ্ভাবন, আধুনিক ডিজাইন এবং বিল্ডিং ফ্যাসিলিটি ইঞ্জিনিয়ারিংয়ের সমন্বয় করে প্রতিষ্ঠানগুলোকে আরও দক্ষ, আধুনিক ও আকর্ষণীয় করে তুলছে।'
+                : 'Smart Trend Digital (STD) was established to bring strategic clarity, visual craft, and hard-nosed engineering into one accountable team. Too many businesses in Bangladesh still struggle with vendor fragmentation — hiring separate designers, marketers, coders, and MEP technicians. STD eliminates that friction.'}
             </p>
             <p>
               {lang === 'bn'
@@ -141,6 +142,9 @@ export default function About() {
           ))}
         </div>
       </section>
+
+      {/* TRUSTED CLIENT STRIP */}
+      <ClientStrip />
 
       {/* BOTTOM CTA */}
       <section className="section">
