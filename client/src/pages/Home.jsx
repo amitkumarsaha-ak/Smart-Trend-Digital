@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -11,10 +11,7 @@ import {
   Building2,
   CalendarCheck,
   FileCheck,
-  ChevronRight,
-  Maximize2,
-  X,
-  ExternalLink
+  ChevronRight
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { company } from '../data/company.js';
@@ -29,7 +26,6 @@ import AnimatedCounter from '../components/AnimatedCounter.jsx';
 
 export default function Home() {
   const { t, lang } = useLanguage();
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className="home-page">
@@ -83,29 +79,14 @@ export default function Home() {
                     <span className="w-dot green" />
                   </div>
                   <span className="window-caption">Smart Trend Digital • Corporate HQ</span>
-                  <button
-                    type="button"
-                    className="btn-view-blueprint"
-                    onClick={() => setIsModalOpen(true)}
-                    title={lang === 'bn' ? 'সম্পূর্ণ এসটিডি ব্লুপ্রিন্ট দেখুন' : 'View Full STD Blueprint'}
-                  >
-                    <Maximize2 size={13} />
-                    <span>{lang === 'bn' ? 'পূর্ণাঙ্গ চিত্র' : 'Full Preview'}</span>
-                  </button>
                 </div>
 
-                <div className="hero-image-container" onClick={() => setIsModalOpen(true)}>
+                <div className="hero-image-container">
                   <img
                     src="/std-hero.jpg"
                     alt="Smart Trend Digital Corporate Headquarters and Digital Agency Workspace"
                     className="hero-main-photo"
                   />
-                  <div className="hero-image-overlay">
-                    <span className="overlay-pill">
-                      <ExternalLink size={13} />
-                      {lang === 'bn' ? 'বড় করে দেখতে ক্লিক করুন' : 'Click to View Full STD Blueprint'}
-                    </span>
-                  </div>
                 </div>
 
                 <div className="hero-image-footer">
@@ -140,46 +121,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        {/* FULL STD IMAGE LIGHTBOX MODAL */}
-        {isModalOpen && (
-          <div className="std-modal-backdrop" onClick={() => setIsModalOpen(false)}>
-            <div className="std-modal-content" onClick={(e) => e.stopPropagation()}>
-              <div className="std-modal-header">
-                <div className="std-modal-title">
-                  <Sparkles size={16} />
-                  <h3>{lang === 'bn' ? 'স্মার্ট ট্রেন্ড ডিজিটাল (এসটিডি) পূর্ণাঙ্গ প্ল্যাটফর্ম' : 'Smart Trend Digital (STD) Platform Blueprint'}</h3>
-                </div>
-                <div className="std-modal-actions">
-                  <a
-                    href="/std.jpeg"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-outline-white btn-sm"
-                  >
-                    <ExternalLink size={14} />
-                    <span>{lang === 'bn' ? 'নতুন ট্যাবে খুলুন' : 'Open in New Tab'}</span>
-                  </a>
-                  <button
-                    type="button"
-                    className="std-modal-close"
-                    onClick={() => setIsModalOpen(false)}
-                    aria-label="Close preview"
-                  >
-                    <X size={20} />
-                  </button>
-                </div>
-              </div>
-              <div className="std-modal-body">
-                <img
-                  src="/std.jpeg"
-                  alt="Smart Trend Digital Complete Platform & Service Ecosystem"
-                  className="std-full-image"
-                />
-              </div>
-            </div>
-          </div>
-        )}
       </section>
 
       {/* CLIENT LOGO STRIP & AFFILIATIONS */}
