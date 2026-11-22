@@ -1,10 +1,61 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext.jsx';
-import { ShieldCheck, Award, Building, Landmark, CheckCircle2 } from 'lucide-react';
 import AgencyMarquee from './AgencyMarquee.jsx';
 
+const clientLogos = [
+  {
+    id: 'simpletree',
+    name: 'Simpletree Attalika',
+    nameBn: 'সিম্পলট্রি অট্টালিকা',
+    logo: '/clients/simpletree.png',
+    alt: 'Simpletree Attalika Logo'
+  },
+  {
+    id: 'basis',
+    name: 'BASIS',
+    nameBn: 'বেসিস (BASIS)',
+    logo: '/clients/basis.png',
+    alt: 'BASIS Logo'
+  },
+  {
+    id: 'gulshan-club',
+    name: 'Gulshan Club',
+    nameBn: 'গুলশান ক্লাব',
+    logo: '/clients/gulshan-club.png',
+    alt: 'Gulshan Club Logo'
+  },
+  {
+    id: 'gulshan-society',
+    name: 'Gulshan Society',
+    nameBn: 'গুলশান সোসাইটি',
+    logo: '/clients/gulshan-society.png',
+    alt: 'Gulshan Society Logo'
+  },
+  {
+    id: 'saints-club',
+    name: 'Saints Club',
+    nameBn: 'সেইন্টস ক্লাব',
+    logo: '/clients/saints-club.png',
+    alt: 'Saints Club Logo'
+  },
+  {
+    id: 'biin-awards-2026',
+    name: 'Bangladesh ICT & Innovation Awards 2026',
+    nameBn: 'বাংলাদেশ আইসিটি অ্যান্ড ইনোভেশন অ্যাওয়ার্ডস ২০২৬',
+    logo: '/clients/biin-awards-2026.png',
+    alt: 'Bangladesh ICT and Innovation Awards 2026 Logo'
+  },
+  {
+    id: 'biin',
+    name: 'BIIN',
+    nameBn: 'বিআইআইএন (BIIN)',
+    logo: '/clients/biin.png',
+    alt: 'Bangladesh ICT and Innovation Network Logo'
+  }
+];
+
 export default function ClientStrip() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <section className="client-strip-section" aria-label="Trusted Clients and Affiliations">
@@ -12,82 +63,20 @@ export default function ClientStrip() {
         <p className="client-strip-title">{t.clientStrip.title}</p>
         <AgencyMarquee speed={32} pauseOnHover={true}>
           <div className="client-strip-grid marquee-inner-row">
-            {/* BASIS Badge */}
-            <div className="client-badge basis-badge">
-              <span className="badge-icon-box">
-                <ShieldCheck size={20} />
-              </span>
-              <div className="badge-meta">
-                <strong>BASIS</strong>
-                <small>{t.clientStrip.memberBasis}</small>
+            {clientLogos.map((client) => (
+              <div
+                key={client.id}
+                className="client-badge client-logo-pure-card"
+                title={lang === 'bn' ? client.nameBn : client.name}
+              >
+                <img
+                  src={client.logo}
+                  alt={client.alt}
+                  className={`client-pure-logo-img logo-${client.id}`}
+                  loading="lazy"
+                />
               </div>
-            </div>
-
-            {/* BIIN Badge */}
-            <div className="client-badge biin-badge">
-              <span className="badge-icon-box">
-                <Award size={20} />
-              </span>
-              <div className="badge-meta">
-                <strong>BIIN</strong>
-                <small>{t.clientStrip.memberBiin}</small>
-              </div>
-            </div>
-
-            {/* BIIN Awards 2026 */}
-            <div className="client-badge">
-              <span className="badge-icon-box">
-                <Award size={20} />
-              </span>
-              <div className="badge-meta">
-                <strong>BIIN Awards 2026</strong>
-                <small>Campaign & Judging</small>
-              </div>
-            </div>
-
-            {/* Gulshan Club */}
-            <div className="client-badge">
-              <span className="badge-icon-box">
-                <Landmark size={20} />
-              </span>
-              <div className="badge-meta">
-                <strong>Gulshan Club</strong>
-                <small>Member Portal & Access</small>
-              </div>
-            </div>
-
-            {/* Saints Club */}
-            <div className="client-badge">
-              <span className="badge-icon-box">
-                <Building size={20} />
-              </span>
-              <div className="badge-meta">
-                <strong>Saints Club</strong>
-                <small>Tournament Engine</small>
-              </div>
-            </div>
-
-            {/* Gulshan Society */}
-            <div className="client-badge">
-              <span className="badge-icon-box">
-                <CheckCircle2 size={20} />
-              </span>
-              <div className="badge-meta">
-                <strong>Gulshan Society</strong>
-                <small>Community Platform</small>
-              </div>
-            </div>
-
-            {/* Simpletree Attalika */}
-            <div className="client-badge">
-              <span className="badge-icon-box">
-                <Building size={20} />
-              </span>
-              <div className="badge-meta">
-                <strong>Simpletree Attalika</strong>
-                <small>Level 19 Gulshan HQ</small>
-              </div>
-            </div>
+            ))}
           </div>
         </AgencyMarquee>
       </div>
