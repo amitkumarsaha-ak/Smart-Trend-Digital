@@ -18,9 +18,9 @@ export const company = {
   facebookUrl: "https://www.facebook.com/smarttrenddigital",
   linkedin: "https://www.linkedin.com/company/smart-trend-digital",
   linkedinUrl: "https://www.linkedin.com/company/smart-trend-digital",
-  address: "Simpletree Attalika (Level 19), Gulshan Avenue, Dhaka 1212",
-  addressBn: "সিম্পলট্রি অট্টালিকা (লেভেল ১৯), গুলশান এভিনিউ, ঢাকা ১২১২",
-  mapsUrl: "https://www.google.com/maps/search/?api=1&query=Simpletree+Attalika+Gulshan+Avenue+Dhaka+1212",
+  address: "Bir Uttam Mir Shawkat Sarak, Gulshan,Dhaka-1212; Gulshan PS; Dhaka-1212; Bangladesh",
+  addressBn: "বীর উত্তম মীর শওকত সড়ক, গুলশান, ঢাকা-১২১২; গুলশান থানা; ঢাকা-১২১২; বাংলাদেশ",
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=Bir+Uttam+Mir+Shawkat+Sarak+Gulshan+Dhaka+1212+Bangladesh",
   memberships: [
     {
       code: "BASIS",

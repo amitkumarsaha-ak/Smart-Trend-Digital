@@ -22,31 +22,10 @@ export const caseStudies = [
   },
   {
     id: "gulshan-club",
-    titleEn: "Gulshan Club: Elite Member Database & Smart QR Access Portal",
-    titleBn: "গুলশান ক্লাব: এলিট মেম্বার ডাটাবেজ ও স্মার্ট কিউআর এক্সেস পোর্টাল",
+    titleEn: "Gulshan Club: Sports Tournament Engine & Player Rosters",
+    titleBn: "গুলশান ক্লাব: স্পোর্টস টুর্নামেন্ট ইঞ্জিন ও প্লেয়ার রেজিস্ট্রেশন",
     clientEn: "Gulshan Club Limited",
     clientBn: "গুলশান ক্লাব লিমিটেড",
-    roleEn: "Member Portal, E-Directory & Front Desk Automation",
-    roleBn: "মেম্বার পোর্টাল, ই-ডিরেক্টরি ও ফ্রন্ট ডেস্ক অটোমেশন",
-    year: "2025-2026",
-    metrics: [
-      { labelEn: "Active Members", labelBn: "সক্রিয় ক্লাব সদস্য", value: "3,500+" },
-      { labelEn: "Paperless Reduction", labelBn: "কাগজের ব্যবহার হ্রাস", value: "90%" },
-      { labelEn: "Guest Check-in Time", labelBn: "অতিথি চেক-ইন সময়", value: "< 3 sec" },
-      { labelEn: "Notice Push Rate", labelBn: "নোটিশ ডেলিভারি হার", value: "100%" }
-    ],
-    highlightEn: "Transforming member services for Dhaka's premier social club with an authenticated member portal, encrypted e-directory, and QR front desk validation.",
-    highlightBn: "ঢাকার অন্যতম ঐতিহ্যবাহী ক্লাবের জন্য এনক্রিপ্টেড মেম্বার ডাটাবেজ, ই-ডিরেক্টরি এবং কিউআর পাস ভিত্তিক ডিজিটাল রিসেপশন সিস্টেম।",
-    storyEn: "To modernize front-desk management and improve communication with 3,500+ distinguished members, Gulshan Club required a secure, high-privacy member portal. STD deployed a private member system with encrypted contact lookups, real-time event booking, digital guest passes with timed QR codes, and instant SMS broadcasts for club committee notices.",
-    storyBn: "৩,৫০০+ সম্মানিত সদস্যের ডিজিটাল সেবা সহজ করতে গুলশান ক্লাবের জন্য একটি প্রাইভেট মেম্বার সিস্টেম তৈরি করা হয়। এতে রয়েছে সুরক্ষিত ই-ডিরেক্টরি, ক্লাবের ইভেন্ট বুকিং, তাৎক্ষণিক কিউআর গেস্ট পাস এবং কমিটির গুরুত্বপূর্ণ নোটিশ এসএমএস ও হোয়াটসঅ্যাপে পৌঁছানোর ব্যবস্থা।",
-    tags: ["Club Portal", "QR Check-in", "E-Directory", "SMS Gateway"]
-  },
-  {
-    id: "saints-club",
-    titleEn: "Saints Club: Sports Tournament Engine & Player Rosters",
-    titleBn: "সেইন্টস ক্লাব: স্পোর্টস টুর্নামেন্ট ইঞ্জিন ও প্লেয়ার রেজিস্ট্রেশন",
-    clientEn: "Saints Club",
-    clientBn: "সেইন্টস ক্লাব",
     roleEn: "Tournament Management Engine & Digital Player Passports",
     roleBn: "টুর্নামেন্ট ম্যানেজমেন্ট সিস্টেম ও প্লেয়ার ডাটাবেজ",
     year: "2025-2026",
@@ -58,9 +37,30 @@ export const caseStudies = [
     ],
     highlightEn: "Automating sports tournament registration, captain logistics, live bracket updates, and printable player ID cards with PDF export.",
     highlightBn: "টুর্নামেন্টে দল ও খেলোয়াড় নিবন্ধন, ক্যাপ্টেন লগইন, ব্র্যাকেট আপডেট এবং স্বয়ংক্রিয় আইডি কার্ড তৈরি।",
-    storyEn: "Saints Club organizes high-profile inter-community and collegiate sports leagues. Manual registration previously caused team roster disputes and delays. STD built a streamlined registration engine where team managers register athletes, upload age proofs, download verified PDF match rosters, and track standings in real time.",
-    storyBn: "সেইন্টস ক্লাবের স্পোর্টস টুর্নামেন্টে আগে ম্যানুয়ালি খেলোয়াড়দের তালিকা তৈরিতে অনেক সময় নষ্ট হতো। এসটিডি এমন একটি ডিজিটাল সিস্টেম বানিয়েছে যেখানে দলগুলো সহজেই প্লেয়ারদের এনরোল করতে পারে, আইডি কার্ড ও ম্যাচ রোস্টার স্বয়ংক্রিয়ভাবে পিডিএফ ডাউনলোড করতে পারে।",
+    storyEn: "Gulshan Club organizes high-profile inter-community and collegiate sports leagues. Manual registration previously caused team roster disputes and delays. STD built a streamlined registration engine where team managers register athletes, upload age proofs, download verified PDF match rosters, and track standings in real time.",
+    storyBn: "গুলশান ক্লাবের স্পোর্টস টুর্নামেন্টে আগে ম্যানুয়ালি খেলোয়াড়দের তালিকা তৈরিতে অনেক সময় নষ্ট হতো। এসটিডি এমন একটি ডিজিটাল সিস্টেম বানিয়েছে যেখানে দলগুলো সহজেই প্লেয়ারদের এনরোল করতে পারে, আইডি কার্ড ও ম্যাচ রোস্টার স্বয়ংক্রিয়ভাবে পিডিএফ ডাউনলোড করতে পারে।",
     tags: ["Sports Engine", "Team Login", "PDF Card Generator", "Brackets"]
+  },
+  {
+    id: "saints-club",
+    titleEn: "Saints Club: Elite Member Database & Smart QR Access Portal",
+    titleBn: "সেইন্টস ক্লাব: এলিট মেম্বার ডাটাবেজ ও স্মার্ট কিউআর এক্সেস পোর্টাল",
+    clientEn: "Saints Club",
+    clientBn: "সেইন্টস ক্লাব",
+    roleEn: "Member Portal, E-Directory & Front Desk Automation",
+    roleBn: "মেম্বার পোর্টাল, ই-ডিরেক্টরি ও ফ্রন্ট ডেস্ক অটোমেশন",
+    year: "2025-2026",
+    metrics: [
+      { labelEn: "Active Members", labelBn: "সক্রিয় ক্লাব সদস্য", value: "3,500+" },
+      { labelEn: "Paperless Reduction", labelBn: "কাগজের ব্যবহার হ্রাস", value: "90%" },
+      { labelEn: "Guest Check-in Time", labelBn: "অতিথি চেক-ইন সময়", value: "< 3 sec" },
+      { labelEn: "Notice Push Rate", labelBn: "নোটিশ ডেলিভারি হার", value: "100%" }
+    ],
+    highlightEn: "Transforming member services for Dhaka's premier social club with an authenticated member portal, encrypted e-directory, and QR front desk validation.",
+    highlightBn: "ঢাকার অন্যতম ঐতিহ্যবাহী ক্লাবের জন্য এনক্রিপ্টেড মেম্বার ডাটাবেজ, ই-ডিরেক্টরি এবং কিউআর পাস ভিত্তিক ডিজিটাল রিসেপশন সিস্টেম।",
+    storyEn: "To modernize front-desk management and improve communication with 3,500+ distinguished members, Saints Club required a secure, high-privacy member portal. STD deployed a private member system with encrypted contact lookups, real-time event booking, digital guest passes with timed QR codes, and instant SMS broadcasts for club committee notices.",
+    storyBn: "৩,৫০০+ সম্মানিত সদস্যের ডিজিটাল সেবা সহজ করতে সেইন্টস ক্লাবের জন্য একটি প্রাইভেট মেম্বার সিস্টেম তৈরি করা হয়। এতে রয়েছে সুরক্ষিত ই-ডিরেক্টরি, ক্লাবের ইভেন্ট বুকিং, তাৎক্ষণিক কিউআর গেস্ট পাস এবং কমিটির গুরুত্বপূর্ণ নোটিশ এসএমএস ও হোয়াটসঅ্যাপে পৌঁছানোর ব্যবস্থা।",
+    tags: ["Club Portal", "QR Check-in", "E-Directory", "SMS Gateway"]
   },
   {
     id: "gulshan-society",

@@ -4071,7 +4071,24 @@ p {
   display: grid;
   grid-template-columns: 1.55fr 1.15fr 0.95fr;
   gap: 3.5rem;
-  margin-bottom: 3.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.footer-social-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.25rem;
+}
+
+.footer-basis-logo {
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
 }
 
 .footer-about {
@@ -4154,7 +4171,6 @@ p {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-top: 1.25rem;
 }
 
 .footer-social-btn {

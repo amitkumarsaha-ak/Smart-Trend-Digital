@@ -21,7 +21,7 @@ export const translations = {
       highlights: [
         "Strategy, creative & engineering under one roof",
         "Official BASIS & BIIN Partner member",
-        "Trusted by Gulshan Club, BIIN Awards & Gulshan Society"
+        "Trusted by Local and International Corporates, Clubs and Societies"
       ]
     },
     clientStrip: {
@@ -174,7 +174,7 @@ export const translations = {
       highlights: [
         "একই ছাদের নিচে স্ট্র্যাটেজি, ডিজাইন ও ইঞ্জিনিয়ারিং",
         "বেসিস (BASIS) ও বিআইআইএন (BIIN) এর অফিশিয়াল সদস্য",
-        "গুলশান ক্লাব, বিআইআইএন অ্যাওয়ার্ডস ও গুলশান সোসাইটির বিশ্বস্ত"
+        "স্থানীয় ও আন্তর্জাতিক কর্পোরেট, ক্লাব ও সোসাইটির বিশ্বস্ত"
       ]
     },
     clientStrip: {

@@ -51,40 +51,6 @@ export default function Footer() {
                 <a href={company.emailHref}>{company.email}</a>
               </li>
             </ul>
-
-            {/* Social Links under Head Office information: Facebook, LinkedIn, WhatsApp */}
-            <div className="footer-social-row">
-              <a
-                href={company.facebook}
-                target="_blank"
-                rel="noreferrer"
-                className="footer-social-btn footer-fb-btn"
-                aria-label="Facebook"
-                title="Follow Smart Trend Digital on Facebook"
-              >
-                <Facebook size={17} />
-              </a>
-              <a
-                href={company.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="footer-social-btn footer-li-btn"
-                aria-label="LinkedIn"
-                title="Follow Smart Trend Digital on LinkedIn"
-              >
-                <Linkedin size={17} />
-              </a>
-              <a
-                href={company.whatsappHref}
-                target="_blank"
-                rel="noreferrer"
-                className="footer-social-btn footer-wa-btn"
-                aria-label="WhatsApp"
-                title="Chat with Smart Trend Digital on WhatsApp"
-              >
-                <MessageCircle size={17} />
-              </a>
-            </div>
           </div>
 
           {/* COL 2: SERVICE AREAS */}
@@ -112,6 +78,48 @@ export default function Footer() {
               <li><Link to="/contact">{t.nav.contact}</Link></li>
             </ul>
           </div>
+        </div>
+
+        {/* Social Links & BASIS Member Logo Row */}
+        <div className="container footer-social-bar">
+          <div className="footer-social-row">
+            <a
+              href={company.facebook}
+              target="_blank"
+              rel="noreferrer"
+              className="footer-social-btn footer-fb-btn"
+              aria-label="Facebook"
+              title="Follow Smart Trend Digital on Facebook"
+            >
+              <Facebook size={17} />
+            </a>
+            <a
+              href={company.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="footer-social-btn footer-li-btn"
+              aria-label="LinkedIn"
+              title="Follow Smart Trend Digital on LinkedIn"
+            >
+              <Linkedin size={17} />
+            </a>
+            <a
+              href={company.whatsappHref}
+              target="_blank"
+              rel="noreferrer"
+              className="footer-social-btn footer-wa-btn"
+              aria-label="WhatsApp"
+              title="Chat with Smart Trend Digital on WhatsApp"
+            >
+              <MessageCircle size={17} />
+            </a>
+          </div>
+
+          <img
+            src="/basis-member.jpg"
+            alt="BASIS Member"
+            className="footer-basis-logo"
+          />
         </div>
 
         <div className="container footer-bottom">
