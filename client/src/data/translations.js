@@ -25,7 +25,7 @@ export const translations = {
       ]
     },
     clientStrip: {
-      title: "TRUSTED BY LEADING CLUBS, AWARDS & CORPORATES",
+      title: "Trusted by Local and International Corporates, Clubs and Societies",
       memberBasis: "BASIS Member",
       memberBiin: "BIIN Partner",
       biinAwards: "BIIN Awards 2026",
@@ -178,7 +178,7 @@ export const translations = {
       ]
     },
     clientStrip: {
-      title: "শীর্ষস্থানীয় প্রতিষ্ঠান ও ক্লাবের বিশ্বস্ত অংশীদার",
+      title: "স্থানীয় ও আন্তর্জাতিক কর্পোরেট, ক্লাব ও সোসাইটির বিশ্বস্ত",
       memberBasis: "বেসিস সদস্য",
       memberBiin: "বিআইআইএন পার্টনার",
       biinAwards: "বিআইআইএন অ্যাওয়ার্ডস ২০২৬",

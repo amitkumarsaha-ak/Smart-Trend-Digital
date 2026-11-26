@@ -78,7 +78,7 @@ export default function Home() {
                     <span className="w-dot yellow" />
                     <span className="w-dot green" />
                   </div>
-                  <span className="window-caption">Smart Trend Digital • Corporate HQ</span>
+                  <span className="window-caption">Smart Trend Digital </span>
                 </div>
 
                 <div className="hero-image-container">

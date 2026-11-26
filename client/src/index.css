@@ -642,7 +642,8 @@ p {
 .hero-image-topbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 0.75rem;
   padding: 0.75rem 1rem;
   background: #0b1f3a;
   color: #e2e8f0;
@@ -1322,6 +1323,16 @@ p {
 .client-pure-logo-img.logo-saints-club { max-height: 46px; }
 .client-pure-logo-img.logo-biin-awards-2026 { max-height: 44px; }
 .client-pure-logo-img.logo-biin { max-height: 40px; }
+
+.client-strip-section .client-logo-pure-card:has(.logo-gulshan-society),
+.client-strip-section .client-logo-pure-card:has(.logo-biin-awards-2026) {
+  padding: 0.25rem 1rem;
+}
+
+.client-strip-section .client-pure-logo-img.logo-gulshan-society,
+.client-strip-section .client-pure-logo-img.logo-biin-awards-2026 {
+  max-height: 60px;
+}
 
 .client-logo-meta {
   display: flex;
